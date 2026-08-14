@@ -1,0 +1,680 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <meta name="description" content="Neo Magadani - UX Designer Portfolio">
+    <meta name="author" content="Neo Magadani">
+    <title>Neo Magadani - UX Designer</title>
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="./assets/img/favicon.png">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com/">
+    <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700;800&display=swap">
+
+    <!-- Bootstrap CSS (CDN) -->
+    <link class="bootstrap-css" rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+
+    <!-- Font Awesome 5 Free (CDN) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+    <!-- Animate.css for subtle micro-interactions -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+
+    <!-- Custom Premium Minimal Styling Extends -->
+    <style>
+        :root {
+            --primary-color: #5E27CB;
+            --primary-light: #E7DBFF;
+            --dark-color: #111112;
+            --text-muted: #575758;
+            --bg-light: #FBFBFC;
+        }
+
+        html {
+            scroll-padding-top: 6rem;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: "Sora", sans-serif;
+            color: var(--dark-color);
+            background-color: #ffffff;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        p {
+            color: var(--text-muted);
+            line-height: 1.75;
+        }
+
+        /* Pure Purple Overrides */
+        .text-primary, .navbar-brand {
+            color: var(--primary-color) !important;
+        }
+
+        /* Sticky Navigation Styling */
+        .sticky-nav {
+            background-color: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 2px solid var(--primary-light);
+            box-shadow: 0 4px 20px rgba(94, 39, 203, 0.04);
+            z-index: 1030;
+        }
+
+        .nav-link {
+            color: var(--dark-color);
+            font-weight: 500;
+            transition: all 0.2s ease;
+            position: relative;
+        }
+
+        .nav-link:hover, .nav-link.active {
+            color: var(--primary-color) !important;
+        }
+
+        .nav-link.active::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background-color: var(--primary-color);
+            border-radius: 2px;
+        }
+
+        /* Buttons & CTA Systems */
+        .btn-primary-gradient {
+            background: linear-gradient(135deg, var(--primary-color) 0%, #3B1682 100%);
+            color: #ffffff;
+            border: none;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .hero-img-container {
+    padding: 0;
+    background: transparent;
+    box-shadow: none;
+}
+        .btn-primary-gradient:hover {
+            color: #ffffff;
+            transform: translateY(-1px);
+            box-shadow: 0 4px 15px rgba(94, 39, 203, 0.3);
+        }
+
+        .btn-primary-outlined {
+            border: 2px solid var(--primary-color);
+            color: var(--primary-color);
+            background: transparent;
+            font-weight: 600;
+            transition: all 0.2s ease;
+        }
+
+        .btn-primary-outlined:hover {
+            background-color: var(--primary-color);
+            color: #ffffff;
+        }
+
+        /* Premium Layout Features */
+        .section-padding {
+            padding: 7rem 0;
+        }
+
+        .section-title {
+            font-size: 2.25rem;
+            font-weight: 800;
+            letter-spacing: -0.03em;
+            margin-bottom: 3rem;
+        }
+
+        /* Cards & Layout Modules */
+        .featured-card {
+            background: var(--bg-light);
+            border: 1px solid rgba(94, 39, 203, 0.08);
+            border-radius: 24px;
+            overflow: hidden;
+            transition: transform 0.3s ease;
+        }
+
+        .featured-card:hover {
+            transform: translateY(-4px);
+        }
+
+        .secondary-card {
+            background: #ffffff;
+            border: 1px solid rgba(0, 0, 0, 0.06);
+            border-radius: 18px;
+            transition: all 0.3s ease;
+        }
+
+        .secondary-card:hover {
+            border-color: var(--primary-light);
+            box-shadow: 0 10px 30px rgba(94, 39, 203, 0.04);
+        }
+
+        .think-card {
+            background: var(--bg-light);
+            border-left: 4px solid var(--primary-color);
+            border-radius: 0 16px 16px 0;
+            padding: 2.5rem;
+            height: 100%;
+        }
+
+        /* Checkmark List Items */
+        .problem-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+            gap: 1.25rem;
+        }
+
+        .problem-item {
+            background: var(--bg-light);
+            padding: 1rem 1.5rem;
+            border-radius: 12px;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .problem-item i {
+            color: var(--primary-color);
+        }
+
+        /* Badges */
+        .bg-primary-subtle {
+            background-color: var(--primary-light) !important;
+            color: var(--primary-color) !important;
+        }
+
+        /* Floating Top Button Layout logic */
+        .topbutton {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            background-color: #ffffff;
+            color: var(--primary-color);
+            width: 3rem;
+            height: 3rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.25rem;
+            box-shadow: 0 4px 15px rgba(94, 39, 203, 0.1);
+            border-radius: 50%;
+            border: 1px solid rgba(94, 39, 203, 0.1);
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.2s ease;
+            z-index: 99;
+        }
+
+        .topbutton.btn-show {
+            visibility: visible;
+            opacity: 1;
+        }
+
+        .topbutton:hover {
+            background: var(--primary-color);
+            color: #ffffff;
+        }
+
+        .contact-email-link {
+            color: var(--primary-color);
+            transition: opacity 0.2s ease;
+        }
+        .contact-email-link:hover {
+            opacity: 0.85;
+        }
+
+        /* Responsive Fixes */
+        @media screen and (max-width: 991.98px) {
+            .hero-img-container { margin-top: 3rem; }
+        }
+        @media screen and (max-width: 767.98px) {
+            .section-padding { padding: 4.5rem 0; }
+            .section-title { font-size: 1.75rem; margin-bottom: 2rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Sticky Navigation Bar -->
+    <header class="header-area sticky-top sticky-nav">
+        <div class="container d-flex align-items-center justify-content-between py-3">
+            <a href="#" class="navbar-brand fw-bold fs-4 tracking-tight">Neo Magadani</a>
+            <nav class="d-none d-md-flex gap-4" id="mainNav">
+                <a href="#work" class="nav-link">Work</a>
+                <a href="#process" class="nav-link">Process</a>
+                <a href="#about" class="nav-link">About</a>
+                <a href="#resume" class="nav-link">Resume</a>
+                <a href="#contact" class="nav-link">Contact</a>
+            </nav>
+            <div>
+                <a href="#contact" class="btn btn-primary-gradient rounded-pill px-4 py-2 fw-medium">Hire Me</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Balanced Split Hero Section with Image on the Right -->
+<section id="hero" class="hero-area min-vh-90 d-flex align-items-center bg-white section-padding pt-5 navigation-section">
+    <div class="container">
+        <div class="row align-items-center g-5">
+
+            <!-- Text Core -->
+            <div class="col-lg-7 text-start">
+
+                <span class="text-uppercase tracking-wider fw-bold text-primary small d-block mb-3">
+                    UX Designer
+                </span>
+
+                <h1 class="display-4 fw-extrabold text-dark tracking-tight mb-4 animate__animated animate__fadeInUp">
+                    Designing products that simplify complexity, build trust and create experiences people enjoy using.
+                </h1>
+
+                <p class="fs-5 fw-normal text-secondary mb-5 col-xl-11 animate__animated animate__fadeInUp animate__delay-1s">
+                    BA Honours in Psychology graduate specialising in research-driven UX and product design.
+                </p>
+
+                <div class="d-flex flex-wrap gap-3 animate__animated animate__fadeInUp animate__delay-1s">
+
+                    <a href="#work" class="btn btn-primary-gradient px-4 py-3 rounded-pill fw-semibold">
+                        View Case Study
+                    </a>
+
+                    <a href="./assets/img/UX_Design_CV.pdf"
+                       target="_blank"
+                       rel="noopener"
+                       class="btn btn-primary-outlined px-4 py-3 rounded-pill fw-semibold">
+                        View Resume
+                    </a>
+
+                </div>
+            </div>
+                <!-- Image Component Frame -->
+                <div class="col-lg-5 p-0 hero-img-container text-center animate__animated animate__fadeIn animate__delay-1s">
+                    
+                        <img src="./assets/img/hero/hero.png" alt="Neo Magadani UX Showcase" class="img-fluid rounded-4 shadow-sm">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Work Showcase Section (Case Studies Primary Focus) -->
+   <section id="work" class="portfolio-area section-padding border-top bg-white navigation-section">
+    <div class="container">
+
+        <!-- =====================================================
+             CASE STUDY 01 — TSHWANE TRANSIT
+             Full Width Featured Case Study
+             ===================================================== -->
+        <div class="row mb-5">
+            <div class="col-12">
+                <div class="featured-card p-4 p-md-5">
+
+                    <div class="row align-items-center g-4 g-lg-5">
+
+                        <!-- Image -->
+                        <div class="col-lg-7">
+                            <div class="bg-secondary bg-opacity-10 rounded-4 p-2 text-center overflow-hidden">
+                                <img 
+                                    src="./images/hero image.png" 
+                                    alt="Tshwane Transit mobile app interface"
+                                    class="img-fluid rounded-3 shadow-sm">
+                            </div>
+                        </div>
+
+                        <!-- Content -->
+                        <div class="col-lg-5">
+
+                            <span class="badge bg-primary-subtle text-primary rounded-pill px-3 py-2 fw-semibold mb-3">
+                                Featured Case Study
+                            </span>
+
+                            <h2 class="fw-bold text-dark tracking-tight mb-3">
+                                Tshwane Transit
+                            </h2>
+
+                            <p class="text-secondary mb-4">
+                                Designing a digital public transport experience to make bus journeys easier to plan, track, and navigate.
+                            </p>
+
+                            <!-- Project Details -->
+                            <div class="row g-3 mb-4 py-3 border-top border-bottom border-light">
+
+                                <div class="col-4">
+                                    <span class="d-block text-uppercase text-muted small fw-bold">
+                                        Role
+                                    </span>
+                                    <span class="fw-semibold text-dark small">
+                                        Lead UX
+                                    </span>
+                                </div>
+
+                                <div class="col-4">
+                                    <span class="d-block text-uppercase text-muted small fw-bold">
+                                        Timeline
+                                    </span>
+                                    <span class="fw-semibold text-dark small">
+                                        8 Weeks
+                                    </span>
+                                </div>
+
+                                <div class="col-4">
+                                    <span class="d-block text-uppercase text-muted small fw-bold">
+                                        Outcome
+                                    </span>
+                                    <span class="fw-semibold text-dark small">
+                                        High-Fi Prototype
+                                    </span>
+                                </div>
+
+                            </div>
+
+                            <!-- Link -->
+                            <a 
+                                href="./city-of-tshwane.html"
+                                class="text-primary fw-bold fs-5 text-decoration-none d-inline-flex align-items-center gap-2">
+
+                                Read Case Study 
+                                <i class="fas fa-arrow-right"></i>
+
+                            </a>
+
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+
+        <!-- =====================================================
+             CASE STUDY 02 + 03
+             Two Secondary Cards Side-by-Side
+             ===================================================== -->
+        <div class="row g-4">
+
+
+            <!-- =================================================
+                 CASE STUDY 02 — REBUS BROKERS
+                 ================================================= -->
+            <div class="col-md-6">
+
+                <div class="secondary-card p-4 h-100 d-flex flex-column justify-content-between">
+
+                    <div>
+
+                        <!-- Image -->
+                        <div class="bg-light rounded-3 p-4 mb-4 text-center">
+
+                            <img 
+                                src="./assets/img/rebus mockup.png"
+                                alt="Rebus Brokers insurance platform interface"
+                                class="img-fluid rounded shadow-xs">
+
+                        </div>
+
+                        <span class="text-primary small fw-bold text-uppercase tracking-wider">
+                            Case Study 02
+                        </span>
+
+                        <h3 class="h4 fw-bold text-dark mt-2 mb-3">
+                            Rebus Brokers
+                        </h3>
+
+                        <p class="text-secondary small">
+                            Redesigning an insurance platform to simplify complex broker workflows.
+                        </p>
+
+                    </div>
+
+                    <div class="pt-3 mt-auto">
+
+                        <a 
+                            href="./rebus-case-study.html"
+                            class="text-primary fw-bold text-decoration-none d-inline-flex align-items-center gap-1">
+
+                            Read Case Study 
+                            <i class="fas fa-arrow-right fs-7"></i>
+
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 CASE STUDY 03 — THRIVE
+                 ================================================= -->
+            <div class="col-md-6">
+
+                <div class="secondary-card p-4 h-100 d-flex flex-column justify-content-between">
+
+                    <div>
+
+                        <!-- Image -->
+                        <div class="bg-light rounded-3 p-4 mb-4 text-center">
+
+                            <img 
+                                src="./assets/img/AFTER DESKTOP.png"
+                                alt="Thrive case management dashboard interface"
+                                class="img-fluid rounded shadow-xs">
+
+                        </div>
+
+                        <span class="text-primary small fw-bold text-uppercase tracking-wider">
+                            Case Study 03
+                        </span>
+
+                        <h3 class="h4 fw-bold text-dark mt-2 mb-3">
+                            Thrive Support Network
+                        </h3>
+
+                        <p class="text-secondary small">
+                            Designing a trauma-informed case management dashboard to simplify reporting and support social workers.
+                        </p>
+
+                    </div>
+                      <div class="pt-3 mt-auto">
+
+                        <a 
+                            href="./Thrive.html"
+                            class="text-primary fw-bold text-decoration-none d-inline-flex align-items-center gap-1">
+
+                            Read Case Study 
+                            <i class="fas fa-arrow-right fs-7"></i>
+
+                        </a>
+
+                </div>
+
+            </div>
+
+
+        </div>
+
+    </div>
+</section>
+
+    <!-- Strategic Philosophy Section -->
+    <section id="process" class="process-area section-padding border-top bg-white navigation-section">
+        <div class="container">
+            <h2 class="section-title">How I Think</h2>
+            <div class="row g-4">
+                <div class="col-lg-4 col-md-6">
+                    <div class="think-card">
+                        <div class="mb-4 text-primary"><i class="fas fa-brain fa-2xl"></i></div>
+                        <h3 class="h4 fw-bold text-dark mb-3">Psychology First</h3>
+                        <p class="text-secondary mb-0">I use behavioural insight to understand why users struggle, what motivates them, and where friction begins.</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="think-card">
+                        <div class="mb-4 text-primary"><i class="fas fa-compress-alt fa-2xl"></i></div>
+                        <h3 class="h4 fw-bold text-dark mb-3">Simplify complexity</h3>
+                        <p class="text-secondary mb-0">I turn complex workflows into clear, intuitive experiences.</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-12">
+                    <div class="think-card">
+                        <div class="mb-4 text-primary"><i class="fas fa-chart-line fa-2xl"></i></div>
+                        <h3 class="h4 fw-bold text-dark mb-3">Evidence over assumptions</h3>
+                        <p class="text-secondary mb-0">I use research, usability principles and iteration to make informed design decisions.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Strategic Narrative Personal Identity Section -->
+    <!-- About Me -->
+<section id="about" class="about-area section-padding border-top bg-white navigation-section">
+    <div class="container">
+        <div class="row justify-content-between g-5 align-items-start">
+
+            <div class="col-lg-8">
+                <h2 class="section-title mb-4">About Me</h2>
+
+                <p class="fs-5 text-dark lh-base mb-4">
+                    I’m <strong class="text-primary">Neo Magadani</strong>, a UX Designer with a
+                    <strong>BA Honours in Psychology</strong>, bringing together an understanding
+                    of human behaviour, problem-solving, and digital product design.
+                </p>
+
+                <p class="text-secondary mb-4">
+                    My background in Psychology shaped the way I approach design: with curiosity
+                    about people, attention to how they interact with systems, and a desire to
+                    understand the problems behind the interface.
+                </p>
+
+                <p class="text-secondary mb-4">
+                    I enjoy working on complex products and turning them into experiences that are
+                    clearer, more intuitive, and easier to navigate. From mapping user journeys to
+                    designing workflows and refining interfaces, I’m interested in creating
+                    solutions that work for both the people using them and the teams building them.
+                </p>
+
+                <p class="text-secondary mb-0">
+                    I’m especially drawn to products where
+                    people, technology, and business needs intersect, because that’s where thoughtful design can make a meaningful difference.
+                </p>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+    <!-- Niche Targeted Capabilities Matrix Section -->
+    <section class="problems-area section-padding border-top bg-white">
+        <div class="container">
+            <h2 class="section-title">Problems I enjoy solving</h2>
+            <p class="fs-5 text-secondary mb-5 col-lg-8">I enjoy working on products that involve:</p>
+            
+            <div class="problem-grid">
+                <div class="problem-item"><i class="fas fa-check"></i> Complex workflows</div>
+                <div class="problem-item"><i class="fas fa-check"></i> Enterprise systems</div>
+                <div class="problem-item"><i class="fas fa-check"></i> Accessibility</div>
+                <div class="problem-item"><i class="fas fa-check"></i> Behaviour-driven design</div>
+                <div class="problem-item"><i class="fas fa-check"></i> Information architecture</div>
+                <div class="problem-item"><i class="fas fa-check"></i> Research</div>
+                <div class="problem-item"><i class="fas fa-check"></i> Design systems</div>
+                <div class="problem-item"><i class="fas fa-check"></i> Products with business impact</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Clean Direct Portfolio Assets Access Frame -->
+    <section id="resume" class="resume-cta-area section-padding border-top bg-light text-center navigation-section">
+        <div class="container py-4">
+            <h2 class="fw-bold tracking-tight text-dark mb-3">Interested in how I work?</h2>
+            <p class="fs-5 text-secondary mb-5">Download my detailed CV or view my professional networks immediately.</p>
+            <div class="d-flex flex-wrap justify-content-center gap-3">
+                <a href="./assets/img/UX_Design_CV.pdf" class="btn btn-primary-gradient px-4 py-3 rounded-pill fw-semibold" download><i class="fas fa-download me-2"></i> Download Resume</a>
+                <a href="https://www.linkedin.com/in/neo-magadani/" target="_blank" class="btn btn-primary-outlined px-4 py-3 rounded-pill fw-semibold"><i class="fab fa-linkedin me-2"></i> View LinkedIn</a>
+                <a href="mailto:magadanineo@gmail.com" class="btn btn-outline-secondary border-secondary px-4 py-3 rounded-pill fw-semibold text-dark"><i class="fas fa-envelope me-2"></i> Email Me</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Simplified and Personalized Footer Contact Framework -->
+    <section id="contact" class="contact-personal-area section-padding border-top bg-white text-center navigation-section">
+        <div class="container col-xl-7 col-lg-9">
+            <h2 class="display-5 fw-extrabold text-dark tracking-tight mb-4">Let's build products people enjoy using.</h2>
+            <p class="fs-4 text-secondary mb-5">
+                Whether you're hiring, collaborating, or simply want to chat about design, I'd love to hear from you.
+            </p>
+            
+            <div class="mb-5">
+                <a href="mailto:magadanineo@gmail.com" class="display-6 fw-bold contact-email-link text-decoration-none tracking-tight text-break">magadanineo@gmail.com</a>
+            </div>
+            
+            <div class="d-flex justify-content-center gap-4 py-2">
+                <a href="https://www.linkedin.com/in/neo-magadani/" target="_blank" class="fw-bold text-dark text-decoration-none border-bottom border-dark pb-1">LinkedIn</a>
+                <a href="./assets/img/UX_Design_CV.pdf" class="fw-bold text-dark text-decoration-none border-bottom border-dark pb-1" download>Resume</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Structural Baseline Copyright Statement Footer -->
+    <footer class="py-4 border-top border-light bg-white">
+        <div class="container text-center">
+            <span class="small text-muted">&copy; 2026 Neo Magadani. Built for clarity and scannability.</span>
+        </div>
+    </footer>
+
+    <!-- Back To Top Floating Interactive Element -->
+    <button class="topbutton shadow" id="backToTopBtn" aria-label="Scroll back to top">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <!-- Structural Layout Support Library Framework Script Assets -->
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Custom Event Target Handlers Logic -->
+    <script>
+        $(document).ready(function() {
+            // ScrollSpy tracking logic
+            const sections = $('.navigation-section');
+            const navLinks = $('#mainNav .nav-link');
+
+            $(window).on('scroll', function() {
+                let currentPos = $(this).scrollTop() + 120; // offset to trigger slightly early
+
+                sections.each(function() {
+                    let top = $(this).offset().top;
+                    let bottom = top + $(this).outerHeight();
+                    let id = $(this).attr('id');
+
+                    if (currentPos >= top && currentPos <= bottom) {
+                        navLinks.removeClass('active');
+                        $('#mainNav').find(`[href="#${id}"]`).addClass('active');
+                    }
+                });
+                
+                // Back to Top button logic
+                if ($(this).scrollTop() > 400) {
+                    $('#backToTopBtn').addClass('btn-show');
+                } else {
+                    $('#backToTopBtn').removeClass('btn-show');
+                }
+            });
+            
+            $('#backToTopBtn').click(function() {
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            });
+        });
+    </script>
+</body>
+</html>

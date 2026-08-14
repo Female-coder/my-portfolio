@@ -1,0 +1,592 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Thrive · a UX case study on redesigning case management for frontline gender-based violence support workers.">
+  <title>Thrive · UX Case Study</title>
+  <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+
+  <!--
+    IMAGE NOTE FOR EDITOR:
+    Every screenshot in this file is a placeholder <div class="placeholder">.
+    Swap it for your real <img src="./assets/img/your-file.png" alt="..."> ·
+    the placeholder already carries the right aspect ratio and border, so
+    swapping the tag in place keeps the layout intact.
+  -->
+
+  <div class="progress"><span id="progressBar"></span></div>
+
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="wordmark" href="#top">THRIVE</a>
+      <nav aria-label="Case study navigation">
+        <a href="#problem">Problem</a>
+        <a href="#research">Research</a>
+        <a href="#insight">Insight</a>
+        <a href="#design">Design</a>
+        <a href="#testing">Testing</a>
+        <a href="#outcome">Outcome</a>
+        <a href="#reflection">Reflection</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="top">
+
+    <section class="hero">
+      <div class="hero-copy">
+        <p class="eyebrow">UX case study · 2026</p>
+        <h1>Thrive</h1>
+        <h2>Redesigning case management for frontline gender-based violence support work.</h2>
+        <p class="hero-intro">
+          A speculative product design project. I studied how caseworkers actually capture and
+          track information, then rebuilt the workflow around how a case really unfolds instead of
+          how a form assumes it should.
+        </p>
+
+        <div class="meta-grid">
+          <div><span>Role</span><strong>Product designer</strong></div>
+          <div><span>Timeline</span><strong>6 weeks</strong></div>
+          <div><span>Discovery research</span><strong>8 participants</strong></div>
+          <div><span>Usability testing</span><strong>5 participants</strong></div>
+        </div>
+      </div>
+
+      <figure class="hero-image">
+        <img 
+  src="./assets/img/AFTER DESKTOP.png" 
+  alt="Early wireframe for the Thrive case management workspace"
+>
+        
+        </div>
+      </figure>
+    </section>
+
+    <!-- SNAPSHOT: scan-first summary for readers who only see the top of the page -->
+    <div class="snapshot reveal">
+      <div><strong>18 → 9</strong><span>required intake fields, after testing</span></div>
+      <div><strong>22 → 6 min</strong><span>time to complete an intake in the prototype</span></div>
+      <div><strong>87%</strong><span>task success across usability testing</span></div>
+    </div>
+
+    <section class="section" id="problem">
+      <div class="section-kicker">Case file 01 · The problem</div>
+      <div class="section-heading reveal">
+        <h2>The workflow was fragmented before the interface was.</h2>
+        <p>
+          Caseworkers were working across paper notes, Word documents, spreadsheets, WhatsApp,
+          email and shared folders. Having several tools wasn't the real issue. The same piece of
+          information was being captured, stored and retrieved in different places, and nothing kept
+          those copies in sync.
+        </p>
+      </div>
+
+      <div class="problem-grid reveal">
+        <article>
+          <h3>Information fragmentation</h3>
+          <p>Case details lived across files, messages and folders instead of one record a worker could trust.</p>
+        </article>
+        <article>
+          <h3>Repeated data entry</h3>
+          <p>The same information got typed more than once: when a case changed, and again when a report was due.</p>
+        </article>
+        <article>
+          <h3>Reporting overhead</h3>
+          <p>Every report meant hunting for information, reformatting it, then compiling it by hand.</p>
+        </article>
+      </div>
+
+      <div class="problem-statement reveal">
+        <span>Design problem</span>
+        <p>How might we help caseworkers capture, find and update sensitive case information without adding work to already high-pressure interactions?</p>
+      </div>
+    </section>
+
+    <section class="section" id="research">
+      <div class="section-kicker">Case file 02 · Research</div>
+      <div class="section-heading reveal">
+        <h2>I studied the workflow before I designed the system.</h2>
+        <p>
+          I needed to see where information got lost, duplicated or hard to retrieve, and which parts
+          of the day created the most friction for frontline staff and the coordinators above them.
+        </p>
+      </div>
+
+      <div class="research-table-wrap reveal">
+        <table class="research-table">
+          <thead>
+            <tr>
+              <th>Method</th>
+              <th>Participants</th>
+              <th>Focus</th>
+              <th>How it shaped the design</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Contextual inquiry</strong></td>
+              <td>5 frontline caseworkers</td>
+              <td>Watched how cases were handled and recorded in real time.</td>
+              <td>Surfaced repeated work, tool switching and intake friction.</td>
+            </tr>
+            <tr>
+              <td><strong>Structured interviews</strong></td>
+              <td>3 regional operations leads</td>
+              <td>Asked how reporting and coordination actually happen.</td>
+              <td>Defined what visibility and reporting needed to cover.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="research-questions reveal">
+        <div>
+          <span>01</span>
+          <p>Where does information get duplicated?</p>
+        </div>
+        <div>
+          <span>02</span>
+          <p>What's actually needed at first contact?</p>
+        </div>
+        <div>
+          <span>03</span>
+          <p>Where do people lose time searching or compiling?</p>
+        </div>
+        <div>
+          <span>04</span>
+          <p>What does a coordinator need to see across cases?</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-kicker">Case file 03 · Current state</div>
+      <div class="section-heading reveal">
+        <h2>Mapping the journey showed where the workflow was breaking down.</h2>
+        <p>
+          I traced a typical caseworker journey from intake through reporting and follow-up. The map
+          separated what looked like an interface problem from what was actually a workflow problem.
+        </p>
+      </div>
+
+      <figure class="large-visual bordered reveal">
+         <img 
+  src="./assets/img/current state journey.png" 
+  alt="current state journey img"
+>
+
+     </figure>
+
+      <div class="journey-insight reveal">
+        <div class="journey-insight-label">What the journey showed</div>
+        <p>
+          The number of tools wasn't the real problem. Information moved between them with no
+          consistent structure, so caseworkers had to remember where each piece lived, re-enter it,
+          then verify it again later.
+        </p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-kicker">Case file 04 · Users</div>
+      <div class="section-heading reveal">
+        <h2>Two users pulled the workflow in different directions.</h2>
+        <p>
+          Frontline staff needed a fast, forgiving way to capture case information in the moment.
+          Regional coordinators needed visibility across many cases and a faster path to reporting.
+          The design had to hold both.
+        </p>
+      </div>
+
+      <div class="persona-grid reveal">
+                 <img 
+  src="./assets/img/Andile Nkosi.png" 
+  alt="User persona Andile"
+>
+
+                             <img 
+  src="./assets/img/Lindile moloi.png" 
+  alt="User persona Andile"
+>
+            
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="section" id="insight">
+      <div class="section-kicker">Case file 05 · Key insight</div>
+      <div class="insight-block reveal">
+        <p class="insight-lead">Capture information when it becomes available, not all at once.</p>
+        <p>
+          That became the design's central rule. Instead of digitising the existing paperwork, I
+          rebuilt the workflow around how information actually unfolds during casework: in pieces,
+          over multiple conversations, not in a single sitting.
+        </p>
+      </div>
+    </section>
+
+    <section class="section" id="design">
+      <div class="section-kicker">Case file 06 · Design decision</div>
+      <div class="section-heading reveal">
+        <h2>The intake form changed the direction of the whole product.</h2>
+        <p>
+          My first high-fidelity version had 18 fields, asking for demographic, geographic,
+          historical and legal information upfront. Testing made the flaw obvious: that much
+          information usually isn't available on day one, so the form was asking for things a
+          worker couldn't yet give.
+        </p>
+      </div>
+
+      <div class="before-after reveal">
+        <article class="ba-panel">
+          <span>Initial design</span>
+          <h3>18 fields upfront</h3>
+          <p>Full case information was required during the first interaction.</p>
+          <strong>22 min</strong>
+          <small>Prototype task time</small>
+        </article>
+        <div class="ba-arrow" aria-hidden="true">→</div>
+        <article class="ba-panel revised">
+          <span>Revised design</span>
+          <h3>9 critical fields</h3>
+          <p>Safety and basic identification first. Everything else follows once it's known.</p>
+          <strong>6 min</strong>
+          <small>Prototype task time</small>
+        </article>
+      </div>
+
+      <div class="decision-copy reveal">
+        <h3>Progressive disclosure</h3>
+        <p>
+          The revised flow keeps first contact focused while letting the case record grow as the
+          relationship develops. It cuts the initial burden without dropping any information the
+          workflow needs later.
+        </p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-kicker">Case file 07 · Iteration</div>
+      <div class="section-heading reveal">
+        <h2>I tested the workflow before I polished the screens.</h2>
+        <p>
+          Wireframes let me test information hierarchy and navigation without visual styling getting
+          in the way. That process is also where I found actions that were buried too deep to be useful.
+        </p>
+      </div>
+
+      <div class="wireframe-block bordered reveal">
+        <div class="wireframe-copy">
+          <span>Case management</span>
+          <h3>Search and filtering moved into the main workspace.</h3>
+          <p>
+            The early concept tucked filtering into an expandable panel. Testing showed workers
+            reached for those controls constantly while locating active cases, so the final layout
+            keeps them visible at all times.
+          </p>
+        </div>
+                         <img 
+  src="./assets/img/cases wireframe.png" 
+  alt="case wireframe"
+>
+       
+        </div>
+      </div>
+
+      <div class="wireframe-block bordered reveal">
+        <div class="wireframe-copy">
+          <span>Intake flow</span>
+          <h3>The form follows the order information actually arrives in.</h3>
+          <p>These wireframes tested the progressive-intake approach before any visual design went in.</p>
+        </div>
+        <div class="wireframe-row">
+
+                           <img 
+  src="./assets/img/form 1 wireframe.png" 
+  alt="form 1"
+>
+                           <img 
+  src="./assets/img/form 2 wireframe.png" 
+  alt="form 2"
+>
+
+ <img 
+  src="./assets/img/form 3 wireframe.png" 
+  alt="form 3"
+>
+     
+ <img 
+  src="./assets/img/View case and edit wireframe.png" 
+  alt="view cases"
+>
+       
+        </div>
+      </div>
+<p>I mapped the key user flows to understand how caseworkers would move through the system to complete their most important tasks. 
+  These flows helped me identify unnecessary steps, clarify the relationship between screens, and make sure the proposed workflow supported the way case information is captured and updated.</p>
+     <div class="flow-grid reveal">
+
+  <figure class="flow-item">
+    <img 
+      src="./assets/img/userflow add case.png" 
+      alt="Add case user flow"/>
+    
+    <figcaption>Add case task flow</figcaption>
+  </figure>
+
+  <figure class="flow-item">
+    <img 
+      src="./assets/img/REPORT EXPORT.png" 
+      alt="Report export user flow"
+    >
+    <figcaption>Report export task flow</figcaption>
+  </figure>
+
+</div>
+
+   <section class="section">
+  <div class="section-kicker">Case file 08 · Prototype</div>
+
+  <div class="section-heading reveal">
+    <h2>I tested the path between screens, not just the screens.</h2>
+    <p>
+      I built an interactive prototype with realistic content and components,
+      covering three core tasks: creating a case, updating its status and
+      moving it toward a report export.
+    </p>
+  </div>
+
+  <div class="video-wrap bordered reveal">
+    <video 
+      controls
+      playsinline
+      preload="metadata"
+      width="100%"
+    >
+      <source src="./assets/img/Prototype video.mp4" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+  </div>
+</section>
+
+    <section class="section">
+      <div class="section-kicker">Case file 09 · Visual system</div>
+      <div class="section-heading reveal">
+        <h2>Visual clarity matters more under pressure.</h2>
+        <p>
+          The visual system favours legibility, predictable grouping and clear status cues. Status is
+          never carried by colour alone; a label or icon backs up every colour cue.
+        </p>
+      </div>
+   <img 
+      src="./assets/img/design systems.png" 
+      alt="design system"
+    >
+    
+    </section>
+
+    <section class="section" id="outcome-visual">
+      <div class="section-kicker">Case file 10 · Final solution</div>
+      <div class="section-heading reveal">
+        <h2>The final interface pulls the whole workflow into one place.</h2>
+        <p>
+          The design connects case visibility, intake, case detail and reporting around the
+          decisions made in research and testing.
+        </p>
+      </div>
+  <img 
+      src="./assets/img/cases dashboard.png" 
+      alt="case dashboard"
+    >
+    
+      <span>Main dashboard · unified case view</span>
+        </div>
+      </figure>
+
+      <div class="ui-rationale reveal">
+        <article>
+          <span>01 · Visibility</span>
+          <h3>Case status is visible before anything is opened.</h3>
+          <p>Coordinators see a high-level view of every case before they need to open a single record.</p>
+        </article>
+        <article>
+          <span>02 · Prioritisation</span>
+          <h3>Critical information stands apart from the rest.</h3>
+          <p>Risk and status cues sit apart from secondary detail, so the workspace can be scanned at speed.</p>
+        </article>
+        <article>
+          <span>03 · Intake</span>
+          <h3>The form follows the conversation.</h3>
+          <p>Progressive disclosure keeps first contact simple while letting the record grow over time.</p>
+        </article>
+      </div>
+
+      <div class="screen-grid reveal">
+        <figure class="bordered">
+   <img 
+      src="./assets/img/View case and edit (3).png" 
+      alt="case detail view"
+    >
+
+        
+          <figcaption>Case detail workspace</figcaption>
+        </figure>
+
+   <figure class="bordered">
+        <img 
+      src="./assets/img/Forms.png" 
+      alt="form intake"
+    >
+      <figcaption>Form simplied</figcaption>
+    </figure>
+
+     <figure class="bordered">
+         <img 
+      src="./assets/img/Report (1).png" 
+      alt="report"
+    >
+    
+          <figcaption>Reporting workflow</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section class="section" id="testing">
+      <div class="section-kicker">Case file 11 · Usability testing</div>
+      <div class="section-heading reveal">
+        <h2>Testing showed exactly where the workflow still snagged.</h2>
+        <p>
+          Five participants worked through the core case-management tasks in the prototype. I was
+          measuring task completion and comprehension, not visual preference.
+        </p>
+      </div>
+
+      <div class="testing-stat bordered reveal">
+        <strong>87%</strong>
+        <span>overall task success across the tested workflows</span>
+      </div>
+
+      <div class="testing-findings reveal">
+        <article>
+          <span>Finding 01 · Navigation</span>
+          <h3>Related information kept getting split up.</h3>
+          <p>Users expected related case information to stay in one place, not spread across tabs.</p>
+          <strong>Change → group related case information into one workspace</strong>
+        </article>
+        <article>
+          <span>Finding 02 · Intake</span>
+          <h3>The first form asked for too much too soon.</h3>
+          <p>It felt demanding when the required information simply wasn't available yet.</p>
+          <strong>Change → use progressive disclosure</strong>
+        </article>
+        <article>
+          <span>Finding 03 · Feedback</span>
+          <h3>Confirmation was too quiet.</h3>
+          <p>Users needed clearer confirmation once a repetitive admin action was actually done.</p>
+          <strong>Change → strengthen confirmation and interaction states</strong>
+        </article>
+      </div>
+    </section>
+
+    <section class="section" id="outcome">
+      <div class="section-kicker">Case file 12 · Outcome</div>
+      <div class="section-heading reveal">
+        <h2>What actually changed in the prototype.</h2>
+        <p>The biggest gains came from cutting unnecessary decisions, not from adding new functionality.</p>
+      </div>
+
+      <div class="outcome-grid reveal">
+        <div><strong>18 → 9</strong><span>initial required intake fields</span></div>
+        <div><strong>22 → 6 min</strong><span>prototype intake task time</span></div>
+        <div><strong>87%</strong><span>overall tested task success</span></div>
+      </div>
+
+      <div class="measurement reveal">
+        <h3>What I'd measure after launch</h3>
+        <div class="measurement-grid">
+          <p><strong>Intake completion time</strong><br>How long it takes to create a case.</p>
+          <p><strong>Case retrieval time</strong><br>How fast a worker can find an existing record.</p>
+          <p><strong>Report preparation time</strong><br>How much manual work still remains.</p>
+          <p><strong>Task error rate</strong><br>Where people still stumble or need help.</p>
+        </div>
+        <small>These are proposed post-launch measures. Thrive was not deployed in a live production environment.</small>
+      </div>
+    </section>
+
+    <section class="section" id="reflection">
+      <div class="section-kicker">Case file 13 · Reflection</div>
+      <div class="section-heading reveal">
+        <h2>The biggest lesson was about timing, not technology.</h2>
+        <p>
+          Designing for high-pressure work taught me that cutting complexity usually beats adding
+          features. The turning point came when I stopped treating the intake form as a record that
+          had to be finished immediately, and started treating a case as information that grows.
+        </p>
+      </div>
+
+      <div class="next-steps reveal">
+        <div>
+          <span>01</span>
+          <h3>Bring frontline practitioners into content design earlier</h3>
+          <p>Earlier collaboration on consent and instructional copy could make the language feel more natural while still meeting organisational requirements.</p>
+        </div>
+        <div>
+          <span>02</span>
+          <h3>Test inside real operating conditions</h3>
+          <p>Testing on older devices and under real working constraints would confirm whether performance and interaction choices hold up.</p>
+        </div>
+      </div>
+
+      <div class="project-note reveal">
+        <strong>Project note</strong>
+        <p>
+          Thrive is a speculative UX research and system design project exploring how digital case
+          management could improve within the gender-based violence sector. The process, workflow
+          changes and projected outcomes come from operational research, stakeholder interviews and
+          prototype testing, not a live production deployment.
+        </p>
+      </div>
+    </section>
+
+  </main>
+
+  <section class="next-project">
+
+  <div class="container">
+
+    <div class="next-project-card reveal">
+
+      <div>
+        <span class="section-kicker">End of case study</span>
+
+        <h2>Thanks for exploring Thrive.</h2>
+
+        <p>
+          Explore the rest of my portfolio and see more of my product design work.
+        </p>
+      </div>
+
+      <div class="next-project-actions">
+
+        <a href="./index.html" class="back-home-link">
+          ← Back home
+        </a>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+  <footer class="footer">
+    <p>Thrive Case Management · UX Case Study · 2026</p>
+  </footer>
+
+  <script src="./script.js"></script>
+</body>
+</html>

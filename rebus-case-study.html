@@ -1,0 +1,933 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Rebus Brokers — Website Redesign Case Study</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;500;600;700;800&family=Source+Sans+3:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --navy:#1A2B6D;
+    --navy-deep:#101d4d;
+    --sky:#29ABE2;
+    --neutral:#F4F7FC;
+    --ink:#1c2333;
+    --gray:#5b6478;
+    --line:#e3e8f2;
+    --white:#ffffff;
+    --maxw:1400px;
+    --pad:40px;
+}
+  
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{margin:0;font-family:'Source Sans 3',sans-serif;color:var(--ink);background:var(--white);line-height:1.8;font-size:18px;}
+  h1,h2,h3,h4{font-family:'Raleway',sans-serif;color:var(--navy);margin:0 0 .5em;line-height:1.15;}
+  h1{font-weight:800;}h2{font-weight:700;}h3{font-weight:600;}
+  a{color:var(--sky);}
+  p{margin:0 0 1.1em;}
+  ul,ol{padding-left:22px;margin:0 0 1.1em;}
+  li{margin-bottom:8px;}
+
+ 
+  .wrap{
+    max-width:var(--maxw);
+    margin:0 auto;
+    padding:0 var(--pad);
+}
+
+  /* progress bar */
+  #progress{position:fixed;top:0;left:0;height:3px;width:0%;background:var(--sky);z-index:1000;transition:width 80ms linear;}
+
+  /* hero */
+  .cs-hero{width:100%;background:#0e1a3d;overflow:hidden;}
+  .cs-hero img{display:block;width:100%;height:auto;}
+  .cs-hero-placeholder{width:100%;height:340px;background:linear-gradient(135deg,var(--navy) 0%,var(--navy-deep) 100%);display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,.25);font-family:'Raleway',sans-serif;font-size:14px;letter-spacing:.08em;text-transform:uppercase;}
+
+  .cs-title-block{background:#fff;border-bottom:1px solid var(--line);padding:36px var(--pad) 28px;text-align:center;}
+  .cs-title-block .cs-eyebrow{font-family:'Raleway',sans-serif;font-size:12px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--sky);margin-bottom:10px;}
+  .cs-title-block h1{font-size:clamp(26px,4vw,44px);font-weight:800;color:var(--navy);margin:0;}
+
+  /* role strip */
+
+  .role-section{background:#fff;border-bottom:1px solid var(--line);padding:32px var(--pad);}
+  .role-section .inner{max-width:var(--maxw);margin:0 auto;display:flex;flex-wrap:wrap;gap:32px 48px;}
+  .role-item .role-label{font-family:'Raleway',sans-serif;font-size:11px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--sky);margin-bottom:4px;}
+  .role-item .role-value{font-family:'Raleway',sans-serif;font-size:16px;font-weight:600;color:var(--navy);}
+
+  /* anchor nav - pill buttons */
+  nav.anchor-nav{background:#fff;border-bottom:1px solid var(--line);padding:18px var(--pad);}
+  nav.anchor-nav .inner{max-width:var(--maxw);margin:0 auto;display:flex;flex-wrap:wrap;gap:8px;}
+  nav.anchor-nav a{font-family:'Raleway',sans-serif;font-size:12.5px;font-weight:600;letter-spacing:.02em;white-space:nowrap;color:#fff;text-decoration:none;background:var(--sky);padding:7px 15px;border-radius:999px;display:inline-block;transition:background .15s,transform .1s;}
+  nav.anchor-nav a:hover{background:#1685b8;transform:translateY(-1px);}
+  nav.anchor-nav a:active,nav.anchor-nav a.active{background:var(--navy);}
+
+  /* sections */
+  section{padding:60px 0;}
+  section.tinted{background:var(--neutral);}
+  section .label{font-family:'Raleway',sans-serif;font-size:12px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--sky);margin-bottom:8px;}
+  .divider{height:1px;background:var(--line);margin:44px 0;}
+
+  blockquote{margin:20px 0;padding:4px 0 4px 20px;border-left:3px solid var(--sky);font-style:italic;color:#333a4d;font-size:17px;}
+
+  /* two-col layout helper */
+  .two-col{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:start;}
+  .two-col.ratio-4060{grid-template-columns:2fr 3fr;}
+  .two-col.ratio-6040{grid-template-columns:3fr 2fr;}
+  @media(max-width:700px){.two-col,.two-col.ratio-4060,.two-col.ratio-6040{grid-template-columns:1fr;}}
+
+  /* three-col for flows */
+  .three-col-flows{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-top:28px;}
+  .three-col-flows .flow-c{grid-column:1 / -1;max-width:50%;}
+  @media(max-width:700px){.three-col-flows{grid-template-columns:1fr;}.three-col-flows .flow-c{max-width:100%;}}
+
+  /* figures */
+  figure.shot{margin:20px 0;border:1px dashed #b7c0d6;border-radius:10px;background:#fbfcfe;padding:14px;}
+  figure.shot img{display:block;width:100%;height:auto;border-radius:6px;border:1px solid var(--line);}
+  figure.shot figcaption{margin-top:10px;font-size:13.5px;color:var(--gray);}
+  figure.shot.designed{border-style:solid;border-color:var(--line);background:#fff;padding:0;}
+  figure.shot.designed svg{width:100%;height:auto;display:block;border-radius:6px;}
+  figure.shot.designed img{border:none;border-radius:0;}
+  figure.shot.designed figcaption{padding:14px 16px 4px;}
+  figure{margin:0;}
+
+  /* small img constraint for heuristic */
+  .img-small img{max-height:320px;width:auto;max-width:100%;border-radius:6px;border:1px solid var(--line);}
+
+  /* cards */
+  .card{background:#fff;border:1px solid var(--line);border-radius:12px;padding:22px 24px;margin-bottom:16px;}
+  .card h3{margin-bottom:4px;}
+
+  /* tables */
+  table{width:100%;border-collapse:collapse;margin:16px 0 24px;font-size:15px;}
+  th,td{padding:10px 13px;text-align:left;border-bottom:1px solid var(--line);}
+  th{background:var(--navy);color:#fff;font-family:'Raleway',sans-serif;font-weight:600;font-size:13px;letter-spacing:.03em;}
+  tr:nth-child(even) td{background:var(--neutral);}
+
+  .next-project {
+  padding: 100px 0;
+}
+
+.next-project-card {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 40px;
+  padding: 48px;
+  border: 1px solid var(--border-color);
+  border-radius: 16px;
+}
+
+.next-project-card h2 {
+  margin: 12px 0 16px;
+}
+
+.next-project-card p {
+  margin: 0;
+  max-width: 520px;
+}
+
+.next-project-actions {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  flex-shrink: 0;
+}
+
+.next-project-link,
+.back-home-link {
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.next-project-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.back-home-link {
+  opacity: 0.7;
+}
+
+.next-project-link:hover,
+.back-home-link:hover {
+  opacity: 0.7;
+}
+
+@media (max-width: 700px) {
+  .next-project-card {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 32px;
+  }
+
+  .next-project-actions {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+  }
+}
+
+  /* before/after */
+  .ba{display:grid;grid-template-columns:1fr 1fr;gap:0;border:1px solid var(--line);border-radius:12px;overflow:hidden;margin-bottom:24px;}
+  .ba>div{padding:20px;}
+  .ba .before{background:#fdf2f2;}
+  .ba .after{background:#f0f9f3;}
+  .ba h4{font-family:'Raleway',sans-serif;font-size:12px;letter-spacing:.1em;text-transform:uppercase;margin-bottom:12px;}
+  .ba .before h4{color:#b3413a;}
+  .ba .after h4{color:#2f8f55;}
+  .ba ul{margin:0;padding-left:18px;}
+  @media(max-width:560px){.ba{grid-template-columns:1fr;}}
+  .ba-shots{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin:24px 0;}
+  @media(max-width:560px){.ba-shots{grid-template-columns:1fr;}}
+
+  /* swatches */
+  .swatches{display:flex;gap:12px;flex-wrap:wrap;margin:18px 0 24px;}
+  .swatch{flex:1;min-width:130px;border-radius:10px;overflow:hidden;border:1px solid var(--line);}
+  .swatch .fill{height:70px;}
+  .swatch .info{padding:9px 11px;background:#fff;font-size:13px;}
+  .swatch .info strong{display:block;font-family:'Raleway',sans-serif;}
+
+  /* JTBD */
+  .jtbd{display:flex;flex-direction:column;gap:0;}
+  .jtbd .step{background:#fff;border:1px solid var(--line);border-radius:10px;padding:13px 16px;font-size:15px;}
+  .jtbd .step strong{color:var(--sky);font-family:'Raleway',sans-serif;}
+  .jtbd .arrow{align-self:center;color:var(--gray);font-size:18px;padding:4px 0;}
+
+  /* flow */
+  .flow{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:14px 0 0;}
+  .flow .step{background:#fff;border:1px solid var(--line);border-radius:8px;padding:9px 14px;font-size:14px;font-family:'Raleway',sans-serif;font-weight:600;color:var(--navy);}
+  .flow .arrow{color:var(--gray);}
+
+  /* flow card wrapper */
+  .flow-card{background:#fff;border:1px solid var(--line);border-radius:12px;padding:20px 22px;}
+  .flow-card h3{margin-bottom:6px;font-size:16px;}
+  .flow-card p{font-size:14.5px;color:var(--gray);margin-bottom:0;}
+
+  /* persona images */
+  .persona-images{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin:24px 0;}
+  .persona-images img{width:100%;height:auto;display:block;border-radius:12px;box-shadow:0 8px 24px rgba(0,0,0,.1);}
+  @media(max-width:600px){.persona-images{grid-template-columns:1fr;}}
+
+  /* insight callout */
+  .insight-box{background:var(--navy);color:#c9d3ef;border-radius:12px;padding:24px 28px;margin:24px 0;}
+  .insight-box .insight-label{font-family:'Raleway',sans-serif;font-size:11px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--sky);margin-bottom:8px;}
+  .insight-box p{color:#c9d3ef;margin:0;font-size:16px;line-height:1.6;}
+
+  footer{background:var(--navy-deep);color:#9aa6cc;padding:36px 0;font-size:13px;}
+
+  @media(max-width:768px){
+    section{padding:44px 0;}
+    .three-col-flows .flow-c{max-width:100%;}
+  }
+</style>
+</head>
+<body>
+
+<div id="progress"></div>
+
+<!-- ═══════════════════════════════════════════
+     HERO IMAGE + TITLE
+════════════════════════════════════════════ -->
+<div class="cs-hero">
+  <!-- swap src for your actual app screenshot -->
+  <img src="./assets/img/rebus final mockup.png" alt="Rebus Brokers redesigned website — final homepage"
+       onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+  <div class="cs-hero-placeholder" style="display:none;">App screenshot — add images/rebus-hero-full.jpg</div>
+</div>
+
+<div class="cs-title-block">
+  <div class="cs-eyebrow">UX / UI Case Study</div>
+  <h1>Rebus Brokers - Website Redesign</h1>
+  <p style="margin-top:12px;">
+  <a href="https://female-coder.github.io/Rebus-brokers/" target="_blank" style="color:#29ABE2; font-weight:600;">
+    View Live Redesign →
+  </a>
+</p>
+</div>
+
+<!-- ═══════════════════════════════════════════
+     ANCHOR NAVIGATION
+════════════════════════════════════════════ -->
+<nav class="anchor-nav">
+  <div class="inner">
+    <a href="#challenge">Challenge</a>
+    <a href="#discovery">Discovery</a>
+    <a href="#research">Research</a>
+    <a href="#ia">IA &amp; Flows</a>
+    <a href="#wireframes">Wireframes</a>
+    <a href="#system">Design System</a>
+    <a href="#ui">Final UI</a>
+    <a href="#compare">Before / After</a>
+    <a href="#testing">Testing</a>
+    <a href="#reflection">Reflection</a>
+  </div>
+</nav>
+
+<!-- ═══════════════════════════════════════════
+     MY ROLE
+════════════════════════════════════════════ -->
+<div class="role-section">
+  <div class="inner">
+    <div class="role-item">
+      <div class="role-label">What</div>
+      <div class="role-value">Website Redesign</div>
+    </div>
+    <div class="role-item">
+      <div class="role-label">Why</div>
+      <div class="role-value">Client — Rebus Brokers</div>
+    </div>
+    <div class="role-item">
+      <div class="role-label">Role</div>
+      <div class="role-value">Designer, Researcher &amp; Developer</div>
+    </div>
+    <div class="role-item">
+      <div class="role-label">Category</div>
+      <div class="role-value">UX / UI Design</div>
+    </div>
+    <div class="role-item">
+      <div class="role-label">Duration</div>
+      <div class="role-value">2 Weeks</div>
+    </div>
+    <div class="role-item">
+      <div class="role-label">Where</div>
+      <div class="role-value">Johannesburg</div>
+    </div>
+  </div>
+</div>
+
+
+
+<section id="challenge">
+  <div class="wrap">
+    <div class="label">The Challenge</div>
+    <h2>A Compelling Story Left Untold</h2>
+    <p>Rebus Brokers is an FSCA-authorized financial service provider (FSP No. 47995) offering access to over 20 insurers and premium savings up to 40% lower than direct competitors. However, their existing website failed to communicate this high-value proposition, meaning warm referral traffic was actively losing confidence upon arrival. Over a three-week end-to-end design sprint, I conducted a heuristic audit and stakeholder research to transform this broken experience into a high-fidelity, developer-ready responsive prototype that explicitly validates trust and streamlines conversion.</p>
+    <figure class="shot">
+      <img src="./assets/img/annotation.png" alt="Annotated screenshot of the existing Rebus Brokers website">
+      <figcaption>
+      </figcaption>
+    </figure>
+  </div>
+</section>
+
+<section id="discovery" class="tinted">
+  <div class="wrap">
+    <div class="label">Discovery</div>
+    <h2>Stakeholder Interview</h2>
+
+    <!-- left: text + quotes | right: affinity SVG -->
+    <div class="two-col">
+      <div>
+        <p>Before touching the site, I ran a 45-minute Zoom session with the company contact. Goal: surface the gap between what the business believes about itself and what a first-time visitor actually experiences.</p>
+        <blockquote>"We get almost all of our clients through word of mouth or referrals. People arrive on the website already half convinced."</blockquote>
+        <blockquote>"We are not a call centre. We actually know our clients."</blockquote>
+        <div class="insight-box">
+          <div class="insight-label">Key Synthesis</div>
+          <p>The website was built and maintained by people who already trust the business. It was never tested through the eyes of someone who doesn't yet — which meant every trust signal was invisible to the people who needed it most.</p>
+        </div>
+      </div>
+      <div>
+        <figure class="shot designed">
+          <svg viewBox="0 0 560 620" xmlns="http://www.w3.org/2000/svg" font-family="'Source Sans 3', sans-serif">
+            <rect x="0" y="0" width="560" height="620" rx="10" fill="#F4F7FC"/>
+
+            <!-- Col 1 -->
+            <rect x="20" y="16" width="155" height="50" rx="7" fill="#1A2B6D"/>
+            <text x="30" y="38" fill="#fff" font-size="11" font-weight="700">Referral-Based</text>
+            <text x="30" y="53" fill="#9fb1e0" font-size="10">Trust is the priority</text>
+
+            <rect x="20" y="78" width="155" height="66" rx="5" fill="#fff" stroke="#e3e8f2"/>
+            <rect x="20" y="78" width="4" height="66" fill="#29ABE2"/>
+            <text x="32" y="99" fill="#1c2333" font-size="11">"Almost all clients arrive</text>
+            <text x="32" y="116" fill="#1c2333" font-size="11">through referral"</text>
+            <text x="32" y="133" fill="#5b6478" font-size="10">→ Trust not persuasion</text>
+
+            <rect x="20" y="156" width="155" height="66" rx="5" fill="#fff" stroke="#e3e8f2"/>
+            <rect x="20" y="156" width="4" height="66" fill="#29ABE2"/>
+            <text x="32" y="177" fill="#1c2333" font-size="11">"Visitors already</text>
+            <text x="32" y="194" fill="#1c2333" font-size="11">half-convinced"</text>
+            <text x="32" y="211" fill="#5b6478" font-size="10">→ Confirm, don't sell</text>
+
+            <rect x="20" y="234" width="155" height="76" rx="5" fill="#fff" stroke="#e3e8f2"/>
+            <rect x="20" y="234" width="4" height="76" fill="#29ABE2"/>
+            <text x="32" y="255" fill="#1c2333" font-size="11">"Bad first impression</text>
+            <text x="32" y="272" fill="#1c2333" font-size="11">undoes a warm referral</text>
+            <text x="32" y="289" fill="#1c2333" font-size="11">in seconds"</text>
+            <text x="32" y="303" fill="#5b6478" font-size="10">→ Trust must be instant</text>
+
+            <!-- Col 2 -->
+            <rect x="200" y="16" width="155" height="50" rx="7" fill="#1A2B6D"/>
+            <text x="210" y="38" fill="#fff" font-size="11" font-weight="700">Not a Call Centre</text>
+            <text x="210" y="53" fill="#9fb1e0" font-size="10">Human connection wins</text>
+
+            <rect x="200" y="78" width="155" height="66" rx="5" fill="#fff" stroke="#e3e8f2"/>
+            <rect x="200" y="78" width="4" height="66" fill="#29ABE2"/>
+            <text x="212" y="99" fill="#1c2333" font-size="11">"We actually know</text>
+            <text x="212" y="116" fill="#1c2333" font-size="11">our clients"</text>
+            <text x="212" y="133" fill="#5b6478" font-size="10">→ Show the person, not logo</text>
+
+            <rect x="200" y="156" width="155" height="66" rx="5" fill="#fff" stroke="#e3e8f2"/>
+            <rect x="200" y="156" width="4" height="66" fill="#29ABE2"/>
+            <text x="212" y="177" fill="#1c2333" font-size="11">"Real relationships,</text>
+            <text x="212" y="194" fill="#1c2333" font-size="11">not scripts"</text>
+            <text x="212" y="211" fill="#5b6478" font-size="10">→ Founder presence</text>
+
+            <rect x="200" y="234" width="155" height="66" rx="5" fill="#fff" stroke="#e3e8f2"/>
+            <rect x="200" y="234" width="4" height="66" fill="#29ABE2"/>
+            <text x="212" y="255" fill="#1c2333" font-size="11">"Claims feel adversarial</text>
+            <text x="212" y="272" fill="#1c2333" font-size="11">everywhere else"</text>
+            <text x="212" y="289" fill="#5b6478" font-size="10">→ Claims = priority nav item</text>
+
+            <!-- Col 3 -->
+            <rect x="380" y="16" width="160" height="50" rx="7" fill="#1A2B6D"/>
+            <text x="390" y="38" fill="#fff" font-size="11" font-weight="700">Typo Went Unnoticed</text>
+            <text x="390" y="53" fill="#9fb1e0" font-size="10">Fresh eyes matter</text>
+
+            <rect x="380" y="78" width="160" height="76" rx="5" fill="#fff" stroke="#e3e8f2"/>
+            <rect x="380" y="78" width="4" height="76" fill="#29ABE2"/>
+            <text x="392" y="99" fill="#1c2333" font-size="11">"Anuthozied" in the</text>
+            <text x="392" y="116" fill="#1c2333" font-size="11">header — unnoticed</text>
+            <text x="392" y="133" fill="#1c2333" font-size="11">for unknown time</text>
+            <text x="392" y="149" fill="#5b6478" font-size="10">→ 1st trust signal, broken</text>
+
+            <rect x="380" y="166" width="160" height="66" rx="5" fill="#fff" stroke="#e3e8f2"/>
+            <rect x="380" y="166" width="4" height="66" fill="#29ABE2"/>
+            <text x="392" y="187" fill="#1c2333" font-size="11">"Team reads past</text>
+            <text x="392" y="204" fill="#1c2333" font-size="11">errors they wrote"</text>
+            <text x="392" y="221" fill="#5b6478" font-size="10">→ Outside audit essential</text>
+
+            <rect x="380" y="244" width="160" height="66" rx="5" fill="#fff" stroke="#e3e8f2"/>
+            <rect x="380" y="244" width="4" height="66" fill="#29ABE2"/>
+            <text x="392" y="265" fill="#1c2333" font-size="11">"Outside eye on the</text>
+            <text x="392" y="282" fill="#1c2333" font-size="11">work is not optional"</text>
+            <text x="392" y="299" fill="#5b6478" font-size="10">→ Heuristic audit first</text>
+
+            <!-- synthesis -->
+            <rect x="20" y="335" width="520" height="2" fill="#e3e8f2"/>
+            <text x="20" y="360" fill="#5b6478" font-size="10" font-weight="700" letter-spacing="1">DESIGN IMPLICATION</text>
+            <text x="20" y="382" fill="#1c2333" font-size="12">Three themes → one root cause: trust signals were invisible to new visitors.</text>
+            <text x="20" y="400" fill="#1c2333" font-size="12">The redesign's job is not to persuade — it's to confirm what the referral already started.</text>
+
+            <!-- insight table -->
+            <rect x="20" y="420" width="520" height="36" rx="6" fill="#1A2B6D"/>
+            <text x="30" y="443" fill="#fff" font-size="11" font-weight="700">Insight</text>
+            <text x="240" y="443" fill="#fff" font-size="11" font-weight="700">Design Response</text>
+
+            <rect x="20" y="456" width="520" height="32" rx="0" fill="#fff" stroke="#e3e8f2"/>
+            <text x="30" y="477" fill="#1c2333" font-size="11">Referral-based traffic</text>
+            <text x="240" y="477" fill="#1c2333" font-size="11">Trust first, above the fold</text>
+
+            <rect x="20" y="488" width="520" height="32" rx="0" fill="#F4F7FC" stroke="#e3e8f2"/>
+            <text x="30" y="509" fill="#1c2333" font-size="11">Human relationship is the differentiator</text>
+            <text x="240" y="509" fill="#1c2333" font-size="11">Founder section, name + quote</text>
+
+            <rect x="20" y="520" width="520" height="32" rx="0" fill="#fff" stroke="#e3e8f2"/>
+            <text x="30" y="541" fill="#1c2333" font-size="11">Typo caught by outsider, not team</text>
+            <text x="240" y="541" fill="#1c2333" font-size="11">Heuristic audit before any design</text>
+
+            <rect x="20" y="552" width="520" height="32" rx="0" fill="#F4F7FC" stroke="#e3e8f2"/>
+            <text x="30" y="573" fill="#1c2333" font-size="11">Claims buried in old nav</text>
+            <text x="240" y="573" fill="#1c2333" font-size="11">Claims = first-class nav item</text>
+          </svg>
+          <figcaption>Affinity clusters from the stakeholder interview, with the design response mapped directly to each observation.</figcaption>
+        </figure>
+      </div>
+    </div>
+   
+
+    <div class="divider"></div>
+
+    <h2>Heuristic Evaluation</h2>
+    <p>I ran the existing site against Nielsen's 10 heuristics. The lowest-scoring areas aligned directly with the trust failures the stakeholder had described.</p>
+    <div class="two-col ratio-4060">
+      <div class="img-small" style="display:flex;align-items:flex-start;">
+        <img src="./assets/img/_- visual selection.png" alt="Annotated existing homepage" style="width:100%;border-radius:8px;border:1px solid var(--line);">
+      </div>
+      <div>
+        <table>
+          <tr><th>Heuristic</th><th>Score</th><th>Issue</th></tr>
+          <tr><td>Visibility of trust signals</td><td>1 / 5</td><td>FSP number buried; typo present</td></tr>
+          <tr><td>Visibility of system status</td><td>2 / 5</td><td>No CTA feedback states</td></tr>
+          <tr><td>Consistency and standards</td><td>2 / 5</td><td>Mixed button styles, no hierarchy</td></tr>
+          <tr><td>Recognition over recall</td><td>2 / 5</td><td>Services not scannable</td></tr>
+        </table>
+        <div class="insight-box">
+          <div class="insight-label">Audit Finding</div>
+          <p>Every low-scoring heuristic mapped directly to a trust failure. The site wasn't just aesthetically dated — it was actively undermining credibility on the most important signals a financial services visitor looks for first.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="divider"></div>
+
+    <h2>Competitive landscape</h2>
+    <p>I looked at five other South African insurance brokers to understand what the category looks and feels like: PWV Brokers, Libra Brokers, RBS Insurance, AB Brokers, and REAM Brokers.</p>
+    <p>What I noticed across the category was a tendency toward one of two extremes. Either the site felt like a direct insurer, slick, corporate, cold, and transactional, or it felt like a small business website that had not been updated in years. There was very little in the middle, something that felt professional and authoritative but also genuinely human.</p>
+    <p>That gap was the design opportunity. Rebus Brokers' actual differentiator is the relationship. The website needed to embody that, not undermine it.</p>
+  </div>
+</section>
+
+<section id="research">
+  <div class="wrap">
+    <div class="label">User Research</div>
+    <h2>Two people, one shared frustration</h2>
+    <p>Because the timeline was short, I used a mixed approach. I ran a 5 question screener survey with 11 respondents drawn from a network of South African professionals in the right demographic range, employed adults between 28 and 52 who currently hold at least one insurance policy. From those 11, I conducted two short structured interviews, 20 minutes each, over Zoom.</p>
+
+   <section id="personas">
+  <div class="wrap">
+
+    <div class="label">User Personas</div>
+    <h2>Who We Were Designing For</h2>
+
+    <div class="persona-images">
+      <img src="./assets/img/UX Persona (1).png" alt="Persona 1">
+      <img src="./assets/img/UX Persona.png" alt="Persona 2">
+    </div>
+
+  </div>
+</section>
+
+    <h3>Empathy map</h3>
+    <p>To pull these two interviews into one shared picture, I mapped what users think, feel, say, and do when they land on an insurance broker's website for the first time.</p>
+    <figure class="shot designed">
+      <svg viewBox="0 0 1200 700" xmlns="http://www.w3.org/2000/svg" font-family="'Source Sans 3', sans-serif">
+  <rect x="0" y="0" width="1200" height="700" rx="10" fill="#F4F7FC"/>
+
+  <!-- center label -->
+  <rect x="500" y="318" width="200" height="64" rx="32" fill="#1A2B6D"/>
+  <text x="600" y="345" fill="#ffffff" font-size="13.5" font-weight="700" text-anchor="middle">FIRST-TIME VISITOR</text>
+  <text x="600" y="364" fill="#9fb1e0" font-size="12" text-anchor="middle">landing on Rebus Brokers</text>
+
+  <!-- dividing lines -->
+  <line x1="600" y1="20" x2="600" y2="680" stroke="#dbe2f0" stroke-width="2"/>
+  <line x1="40" y1="350" x2="1160" y2="350" stroke="#dbe2f0" stroke-width="2"/>
+
+  <!-- THINKS - top left -->
+  <text x="60" y="50" fill="#1A2B6D" font-size="18" font-weight="700">THINKS</text>
+  <line x1="60" y1="60" x2="160" y2="60" stroke="#29ABE2" stroke-width="3"/>
+  <text x="60" y="95" fill="#1c2333" font-size="14.5">"Is this broker actually legit?"</text>
+  <text x="60" y="125" fill="#1c2333" font-size="14.5">"Will this really save me money,</text>
+  <text x="60" y="145" fill="#1c2333" font-size="14.5">or is that just a number?"</text>
+  <text x="60" y="175" fill="#1c2333" font-size="14.5">"Is this a real business or just a</text>
+  <text x="60" y="195" fill="#1c2333" font-size="14.5">favor for someone's referral?"</text>
+  <text x="60" y="225" fill="#1c2333" font-size="14.5">"40% off sounds good, but is it</text>
+  <text x="60" y="245" fill="#1c2333" font-size="14.5">too good to be true?"</text>
+
+  <!-- FEELS - top right -->
+  <text x="660" y="50" fill="#1A2B6D" font-size="18" font-weight="700">FEELS</text>
+  <line x1="660" y1="60" x2="760" y2="60" stroke="#29ABE2" stroke-width="3"/>
+  <text x="660" y="95" fill="#1c2333" font-size="14.5">Cautious, until something on the</text>
+  <text x="660" y="115" fill="#1c2333" font-size="14.5">page proves this is trustworthy</text>
+  <text x="660" y="148" fill="#1c2333" font-size="14.5">Frustrated by impersonal, call</text>
+  <text x="660" y="168" fill="#1c2333" font-size="14.5">centre style service elsewhere</text>
+  <text x="660" y="201" fill="#1c2333" font-size="14.5">Rushed. No patience for clutter</text>
+  <text x="660" y="221" fill="#1c2333" font-size="14.5">or hunting for information</text>
+  <text x="660" y="254" fill="#1c2333" font-size="14.5">Relieved when a person, not a</text>
+  <text x="660" y="274" fill="#1c2333" font-size="14.5">script, seems to be on offer</text>
+
+  <!-- SAYS - bottom left -->
+  <text x="60" y="400" fill="#1A2B6D" font-size="18" font-weight="700">SAYS</text>
+  <line x1="60" y1="410" x2="160" y2="410" stroke="#29ABE2" stroke-width="3"/>
+  <text x="60" y="445" fill="#1c2333" font-size="14.5">"I don't know if I'm getting a good</text>
+  <text x="60" y="465" fill="#1c2333" font-size="14.5">deal or not. I just pay and hope."</text>
+  <text x="60" y="498" fill="#1c2333" font-size="14.5">"If I land on a website and I can't</text>
+  <text x="60" y="518" fill="#1c2333" font-size="14.5">immediately see what it is, I close it.</text>
+  <text x="60" y="538" fill="#1c2333" font-size="14.5">I have no time."</text>
+  <text x="60" y="571" fill="#1c2333" font-size="14.5">"When something happens, I need</text>
+  <text x="60" y="591" fill="#1c2333" font-size="14.5">to reach someone immediately.</text>
+  <text x="60" y="611" fill="#1c2333" font-size="14.5">Not a call centre, a person."</text>
+
+  <!-- DOES - bottom right -->
+  <text x="660" y="400" fill="#1A2B6D" font-size="18" font-weight="700">DOES</text>
+  <line x1="660" y1="410" x2="760" y2="410" stroke="#29ABE2" stroke-width="3"/>
+  <text x="660" y="445" fill="#1c2333" font-size="14.5">Scans the page for a few seconds</text>
+  <text x="660" y="465" fill="#1c2333" font-size="14.5">before deciding to stay or leave</text>
+  <text x="660" y="498" fill="#1c2333" font-size="14.5">Looks for the FSP number, insurer</text>
+  <text x="660" y="518" fill="#1c2333" font-size="14.5">logos, or any sign of legitimacy</text>
+  <text x="660" y="551" fill="#1c2333" font-size="14.5">Leaves the site if nothing confirms</text>
+  <text x="660" y="571" fill="#1c2333" font-size="14.5">trust quickly enough</text>
+  <text x="660" y="604" fill="#1c2333" font-size="14.5">Compares the broker's offer against</text>
+  <text x="660" y="624" fill="#1c2333" font-size="14.5">what they currently pay direct</text>
+
+</svg>
+      <figcaption><span class="note">Empathy map built from the two interviews, language kept as close to what people actually said as possible.</span></figcaption>
+    </figure>
+
+    <div class="divider"></div>
+
+   <div class="divider"></div>
+
+    <h2>Journey to taking action &amp; Problem Statement</h2>
+    <div class="two-col">
+      <div>
+       <figure class="shot">
+      <img src="./assets/img/user journey.png" alt="User journey map">
+    </figure>
+      </div>
+      <div>
+        <figure class="shot designed">
+          <svg viewBox="0 0 560 340" xmlns="http://www.w3.org/2000/svg" font-family="'Source Sans 3', sans-serif">
+            <rect x="0" y="0" width="560" height="340" rx="10" fill="#F4F7FC"/>
+            <line x1="90" y1="170" x2="470" y2="170" stroke="#dbe2f0" stroke-width="1.5" stroke-dasharray="5 5"/>
+
+            <rect x="20" y="60" width="150" height="200" rx="10" fill="#fff" stroke="#e3e8f2"/>
+            <rect x="20" y="60" width="150" height="38" rx="10" fill="#1A2B6D"/>
+            <rect x="20" y="82" width="150" height="16" fill="#1A2B6D"/>
+            <text x="95" y="82" fill="#fff" font-size="10" font-weight="700" text-anchor="middle">BUSINESS PROBLEM</text>
+            <text x="30" y="120" fill="#1c2333" font-size="11">Strong offer, weak site.</text>
+            <text x="30" y="138" fill="#1c2333" font-size="11">Warm referrals lose</text>
+            <text x="30" y="156" fill="#1c2333" font-size="11">confidence on arrival.</text>
+
+            <path d="M 178 170 L 198 170" stroke="#29ABE2" stroke-width="2" fill="none"/>
+            <path d="M 191 163 L 202 170 L 191 177" stroke="#29ABE2" stroke-width="2" fill="none" stroke-linecap="round"/>
+
+            <rect x="205" y="60" width="150" height="200" rx="10" fill="#fff" stroke="#e3e8f2"/>
+            <rect x="205" y="60" width="150" height="38" rx="10" fill="#1A2B6D"/>
+            <rect x="205" y="82" width="150" height="16" fill="#1A2B6D"/>
+            <text x="280" y="82" fill="#fff" font-size="10" font-weight="700" text-anchor="middle">USER PROBLEM</text>
+            <text x="215" y="120" fill="#1c2333" font-size="11">Can't tell in 5 seconds</text>
+            <text x="215" y="138" fill="#1c2333" font-size="11">if this broker is</text>
+            <text x="215" y="156" fill="#1c2333" font-size="11">worth trusting.</text>
+
+            <path d="M 363 170 L 383 170" stroke="#29ABE2" stroke-width="2" fill="none"/>
+            <path d="M 376 163 L 387 170 L 376 177" stroke="#29ABE2" stroke-width="2" fill="none" stroke-linecap="round"/>
+
+            <rect x="390" y="60" width="150" height="200" rx="10" fill="#fff" stroke="#29ABE2" stroke-width="1.5"/>
+            <rect x="390" y="60" width="150" height="38" rx="10" fill="#29ABE2"/>
+            <rect x="390" y="82" width="150" height="16" fill="#29ABE2"/>
+            <text x="465" y="82" fill="#fff" font-size="10" font-weight="700" text-anchor="middle">DESIGN OPPORTUNITY</text>
+            <text x="400" y="120" fill="#1c2333" font-size="11">Build trust in 5 sec,</text>
+            <text x="400" y="138" fill="#1c2333" font-size="11">make value clear,</text>
+            <text x="400" y="156" fill="#1c2333" font-size="11">one obvious next step.</text>
+          </svg>
+        </figure>
+      </div>
+    </div>
+
+  
+
+<section id="ia" class="tinted">
+  <div class="wrap">
+    <div class="label">Structure</div>
+    <h2>Information architecture</h2>
+    <p>The original site's navigation structure was unclear and did not map to how users think. I restructured it around the user's journey, not the company's structure.</p>
+
+    <div class="persona-images">
+       <img src="./assets/img/before flow.png" alt="Persona 2">
+      <img src="./assets/img/after flow.png" alt="Persona 1">
+    </div>
+
+    <p>The key change is that "Start a Quote" lives in a slim top utility bar alongside the phone number and the office address, present above the main navigation on every page. It is never more than one click away regardless of where the user is on the page.</p>
+    <p>"Claims" moves from a buried blog post to a first class navigation item, because someone in an emergency who cannot find the right number will remember that experience, negatively, for years.</p>
+
+    <figure class="shot">
+      <img src="./assets/img/claims before and after rebus.png" alt="Site map comparing before and after structure">
+      </figure>
+
+    <div class="divider"></div>
+
+    <h2>User flows</h2>
+    <p>I mapped three primary user flows before moving to high fidelity. None of these flows should require more than three conscious decisions from the user. Every section after the hero either deepens trust or lowers friction for the CTA.</p>
+
+    <h3>Flow A — The referral visitor</h3>
+    <p>Arrives having been told about Rebus by a friend. Lands on the hero. Reads the headline and the savings claim. Scrolls to the trust panel. Clicks "Start My Comparison." Fills in the form. Done.</p>
+    <div class="flow">
+      <div class="step">Landing</div><div class="arrow">&#8594;</div>
+      <div class="step">Trust panel</div><div class="arrow">&#8594;</div>
+      <div class="step">Quote form</div><div class="arrow">&#8594;</div>
+      <div class="step">Submit</div>
+    </div>
+
+    <h3>Flow B — The comparison shopper</h3>
+    <p>Arrives unsure whether a broker is worth their time. Reads the hero. Scrolls to "About Rebus Brokers" to understand who is behind the business. Reads "How We Work for You." Clicks the quote CTA. Done.</p>
+    <div class="flow">
+      <div class="step">Landing</div><div class="arrow">&#8594;</div>
+      <div class="step">About Rebus</div><div class="arrow">&#8594;</div>
+      <div class="step">How It Works</div><div class="arrow">&#8594;</div>
+      <div class="step">Quote form</div>
+    </div>
+
+    <h3>Flow C — The existing client in crisis</h3>
+    <p>Has a claim or emergency. Arrives on the site. Finds "Claims" in the navigation immediately. Finds the direct claims email and hotline number within seconds. Done.</p>
+    <div class="flow">
+      <div class="step">Landing</div><div class="arrow">&#8594;</div>
+      <div class="step">Claims</div><div class="arrow">&#8594;</div>
+      <div class="step">Hotline found</div>
+    </div>
+
+    <div class="persona-images">
+       <img src="./assets/img/claims before.png" alt="Persona 2">
+      <img src="./assets/img/claims after.png" alt="Persona 1">
+    </div>
+
+  </div>
+</section>
+
+<section id="wireframes">
+  <div class="wrap">
+    <div class="label">Structure First</div>
+    <h2>Wireframes</h2>
+    <p>I mapped three user flows before moving to high fidelity, and those flows shaped the wireframes below. Each screen was kept deliberately low fidelity at this stage so structure and hierarchy could be tested before any visual styling was applied.</p>
+
+    <figure class="shot">
+      <img src="./assets/img/LOW FIDELITY.png" alt="Black and white low fidelity wireframes">
+     
+    </figure>
+  </div>
+</section>
+
+<section id="system" class="tinted">
+ <section id="system" class="tinted">
+  <div class="wrap">
+    <div class="label">Design System</div>
+    <h2>Principles → Palette → Type</h2>
+
+    <div class="two-col" style="margin-bottom:32px;">
+      <div>
+        <h3 style="margin-bottom:16px;">Four Governing Principles</h3>
+        <div class="card"><strong>Trust before transaction.</strong> Every decision either builds or erodes credibility. When in doubt, choose the one that builds it.</div>
+        <div class="card"><strong>Clarity over cleverness.</strong> A visitor who has to think is a visitor who might leave.</div>
+        <div class="card"><strong>The relationship is the product.</strong> Rebus isn't selling insurance — they're selling access to someone on your side.</div>
+        <div class="card"><strong>One next step at a time.</strong> One primary action always visible. No decision paralysis.</div>
+      </div>
+      <div>
+        <h3 style="margin-bottom:16px;">Colour Strategy</h3>
+        <p>Started from the logo itself — deep indigo + sky blue. No third colour introduced.</p>
+        <div class="swatches">
+          <div class="swatch"><div class="fill" style="background:#1A2B6D;"></div><div class="info"><strong>Deep Indigo</strong>#1A2B6D · 60%</div></div>
+          <div class="swatch"><div class="fill" style="background:#F4F7FC;border-bottom:1px solid #e3e8f2;"></div><div class="info"><strong>Light Neutral</strong>#F4F7FC · 30%</div></div>
+          <div class="swatch"><div class="fill" style="background:#29ABE2;"></div><div class="info"><strong>Sky Blue</strong>#29ABE2 · 10%</div></div>
+        </div>
+        <h3 style="margin:24px 0 12px;">Typography</h3>
+        <p><strong>Raleway</strong> for headings — geometric, confident, distinct. <strong>Source Sans Pro</strong> for body — warm, legible on screen, designed for regulated long-form text. Together: human and professional.</p>
+        <p style="font-size:14px;color:var(--gray);">Scale: 52px display → 36px H1 → 28px H2 → 20px H3 → 16px body → 13px legal. Line-height 1.7 on body.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="ui">
+  <div class="wrap">
+    <div class="label">Bringing It Together</div>
+    <h2>Final UI</h2>
+    <p>This is where the research, the principles, and the design system come together into the actual interface. The page reads in a deliberate order: prove the value, prove the people, prove the process, then make it easy to act.</p>
+
+    <h3>Top utility bar</h3>
+    <p>A slim bar above the main navigation carries the phone number, the physical address, and a permanent "Start a Quote" button. Regulatory and contact credibility should be visible immediately, not buried in a footer or a contact page.</p>
+
+    <h3>Hero section</h3>
+    <p>The hero leads with a concrete number because concrete numbers earn trust in a way that adjectives never do. "Pay up to 40% less on your insurance" is more credible than "great rates" or "affordable cover." The line that follows it, "with a broker who actually knows you," carries the relationship message straight from the stakeholder interview into the first thing a visitor reads. Below it sits the supporting line about comparing 20+ insurers and building a policy that fits, not a template, and two buttons: "Start My Comparison" as the one primary action, "View Our Services" for visitors who aren't ready to commit yet.</p>
+    <figure class="shot designed">
+      <img src="./assets/img/hero section (1).png" alt="Desktop homepage hero, headline and primary CTA">
+      
+    </figure>
+
+    <h3>Trust panel</h3>
+    <p>Directly under the hero sits a three-part panel: Independence, Real Savings, and 24/7 Support, each with a short line of proof underneath it. This is the section doing the heaviest trust-building work on the page, so it sits as close to the headline as possible rather than waiting until further down the scroll.</p>
+
+    <h3>About Rebus Brokers</h3>
+    <p>A short founder section was added that didn't exist on the original site at all. It names the founder, Mr. Tshehlakgolo T Thobejane, gives two short paragraphs on his background and the company's approach, and pairs it with a direct quote from him on a light blue card. A name, a face, and a quote turn "a broker who actually knows you" from a tagline into something a visitor can actually verify.</p>
+    <p>Right under that sits a simple stat row, 20+ insurers compared, 40% max savings, 15 minutes to get quotes, 24/7 claims support, repeating the same four numbers from the trust panel in plain large type before the page moves into services. Visitors who skimmed past the hero get a second, quieter chance to absorb the same claims.</p>
+
+    <h3>Service cards</h3>
+    <p>Six services, each with an icon, a one-line description, and a "Learn More" link: Motor Insurance, Home & Contents, Commercial Insurance, Financial Planning, Claims Support, and Free Policy Review. The grid is scannable in a few seconds, which was the entire point. Nobody should have to read a paragraph to find out whether this company does motor insurance.</p>
+    <figure class="shot designed">
+      <img src="./assets/img/reebus SERVICES.png" alt="Services grid with six service cards">
+      </figure>
+
+    <h3>Expert Advice &amp; Institutional Strength</h3>
+    <p>Two supporting panels sit between the services grid and the process steps. "Expert Advice, Not Sales Tactics" pairs a short paragraph on the brokers' independence with a photo of an actual advisory meeting. "Institutional Strength, Boutique Service," set on a dark navy background with a close-up image of a hand holding a coin, makes the case that Rebus carries the same weight with insurers as the big national firms while still knowing clients by name. Both exist to answer the same unspoken question: am I dealing with a real, capable operation, or a one-person side hustle?</p>
+
+    <h3>How We Work For You</h3>
+    <p>A four-step process answers the comparison shopper's biggest hesitation, what actually happens after I submit my details. Tell Us Your Needs, Market Search, Explain Options, Fully Covered, each with a single supporting sentence and a large, pale number behind it. Laying the process out in plain steps removes the fear of being handed off to a script the moment the form is submitted.</p>
+
+    <h3>Testimonials</h3>
+    <p>"Trusted by Families & Businesses" carries three reviews, each with a star rating, a name, a photo, and a location, Thabo M. in Sandton, Sibongile N. in Umhlanga, and Linda V. in Stellenbosch. They're written to be specific. "Rebus Brokers saved me R850 every month on my car insurance alone" is more believable and more useful than "great service." Specificity, plus a real name and a real suburb, is a trust signal in itself.</p>
+    <figure class="shot designed">
+      <img src="./assets/img/TESTIMONIAL.png" alt="Testimonials section with three client reviews">
+       </figure>
+
+    <h3>Quote form &amp; claims contact</h3>
+    <p>The dark "Compare & Save Today" section is the page's main conversion point. On the left, "Request a Comparison" asks for five things: name, email, phone, type of insurance, and an optional message, no address, no vehicle registration, no date of birth. On the right, three short reassurances, independent advice, POPIA-compliant data handling, and a visible physical address, sit beside the same section's 24/7 hotline number and a direct claims email address, set apart from general contact details so someone in a hurry doesn't have to search for them.</p>
+    <figure class="shot designed">
+      <img src="./assets/img/reebus contact us.png" alt="Request a comparison form alongside Compare and Save Today panel">
+      <figcaption><span class="note">"Request a Comparison" form paired with the reasons to trust the process, plus the 24/7 hotline and direct claims email.</span></figcaption>
+    </figure>
+
+    <h3>FAQ</h3>
+    <p>A six-question accordion closes out the page before the footer: premiums and age, why premiums rise as a car's value falls, what an excess is, the difference between cover types, ways to lower premiums, and value-added products. None of this existed on the original site. Answering the obvious objections on the page itself means fewer visitors leave to go searching for answers elsewhere, and fewer calls asking questions the website could have handled.</p>
+
+    <h3>Mobile design</h3>
+    <p>Responsive behaviour was designed alongside desktop from the start, not adapted afterward.</p>
+    <figure class="shot">
+      <img src="./assets/img/iPad_Pro__1_-removebg-preview.png" alt="Mobile screens for home, menu, and quote form">
+      
+    </figure>
+  </div>
+</section>
+
+<section id="compare" class="tinted">
+  <div class="wrap">
+    <div class="label">The Payoff</div>
+    <h2>Before vs after</h2>
+    <p>This comparison should be one of the strongest visuals in the whole case study. It puts the audit findings and the final design side by side, so the impact of the redesign is immediate rather than something the reader has to take on faith.</p>
+
+    <div class="ba">
+      <div class="before">
+        <h4>Before</h4>
+        <ul>
+          <li>Hidden trust signals</li>
+          <li>Typo in the FSP statement</li>
+          <li>No CTA hierarchy</li>
+          <li>Weak, unclear navigation</li>
+        </ul>
+      </div>
+      <div class="after">
+        <h4>After</h4>
+        <ul>
+          <li>Trust first layout</li>
+          <li>Correct, prominent compliance messaging</li>
+          <li>Persistent, single primary CTA</li>
+          <li>Phone, address, and quote CTA always visible</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="ba-shots">
+      <figure class="shot" style="margin:0;">
+        <img src="./assets/img/rebus before.png" alt="Original homepage before redesign">
+         </figure>
+      <figure class="shot designed" style="margin:0;">
+        <img src="./assets/img/rebus after.png" alt="Final homepage after redesign, hero and trust panel">
+         </figure>
+    </div>
+  </div>
+</section>
+
+<section id="testing">
+  <div class="wrap">
+    <div class="label">What's Next</div>
+    <h2>What I would test and measure</h2>
+    <p>If this were live, I would run the following within the first 30 days.</p>
+
+    <h3>Usability test</h3>
+    <p>Six participants across the three user profiles. The specific task I most want to observe: "You have been recommended Rebus Brokers by a friend. You want to find out if they can help you with your car insurance. What do you do?" I would measure time to CTA, where users hesitate, and what questions they ask aloud.</p>
+
+    <h3>A/B test on the hero headline</h3>
+    <p>The headline that shipped, "Pay up to 40% less on your insurance, with a broker who actually knows you," already merges the numbers-led and relationship-led arguments into one line. What I'd still want to test is which half is doing the work: I would run the combined version against a numbers-only variant and a relationship-only variant, because I genuinely do not know whether the second half of the sentence is pulling its weight or just adding length. Data answers that question, not intuition.</p>
+
+    <h3>FAQ engagement</h3>
+    <p>The FAQ accordion is new and untested. I would track which of the six questions get opened most often, and treat a high open rate on any one question as a sign that the answer above it on the page isn't doing its job. If "what is an excess" gets opened constantly, that's a vocabulary problem higher up the page, not just an FAQ problem.</p>
+
+    <h3>Conversion tracking</h3>
+    <p>On the quote form, specifically the drop off rate between form load and submission, and the field at which most users abandon.</p>
+
+  
+
+    <div class="divider"></div>
+
+    <h2>Projected impact</h2>
+    <p>These outcomes are speculative since the redesign has not gone live. They are included because a hiring manager wants to see that I think about outcomes, not just deliverables.</p>
+    <ul>
+      <li>Faster quote requests</li>
+      <li>Improved trust perception on arrival</li>
+      <li>Reduced bounce rate</li>
+      <li>Better mobile navigation</li>
+      <li>Improved emergency claims accessibility</li>
+    </ul>
+
+ 
+  </div>
+</section>
+
+<section id="reflection" class="tinted">
+  <div class="wrap">
+    <div class="label">Looking Back</div>
+    <h2>Reflection</h2>
+    <p>The most useful thing I found in the stakeholder conversation was that phrase, "We get almost all of our business through referrals." That sounds like a strength, and it is. But it also means the website has been allowed to underperform without obvious consequence. The cost of a bad website is not always visible when you are running on referral trust.</p>
+    <p>The redesign's real job was not to generate leads from cold traffic, though a better site will do that too. It was to make sure that when a warm referral arrives on the page, the site confirms their confidence rather than shaking it.</p>
+    <p>Every person referred to Rebus Brokers arrives half decided. The website should close the other half. That is what good financial services design does.</p>
+
+    <h3>What worked</h3>
+    <p>Doing the stakeholder interview earlier than usual in the process. Speaking to the business before running the heuristic audit meant I went into the audit already knowing what the company believed its differentiator was, which made it much faster to spot where the website was contradicting that story.</p>
+
+    <h3>What I'd improve</h3>
+    <p>With more time, I would have recruited a larger user sample and tested an actual prototype with users before finalising the high fidelity screens, rather than relying on interviews and a heuristic audit alone. I would also have liked to validate the hero headline choice with real data instead of leaving it as an open question for the A/B test.</p>
+
+    <h3>Next iteration</h3>
+    <p>If this project continued past the concept stage, the next step would be the usability test and A/B test outlined above, followed by a second design pass informed by that data, particularly around the hero messaging and the quote form's field order.</p>
+  </div>
+</section>
+
+
+<section class="next-project">
+
+  <div class="container">
+
+    <div class="next-project-card reveal">
+
+      <div class="next-project-content">
+      
+
+        <p>
+          Explore the next product design case study.
+        </p>
+      </div>
+
+      <div class="next-project-actions">
+
+        <a href="./Thrive.html" class="next-project-link">
+          Next case study
+          <span aria-hidden="true">→</span>
+        </a>
+
+        <a href="./index.html" class="back-home-link">
+          ← Home
+        </a>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+<footer>
+  <div class="wrap">
+    <p style="margin:0;">Rebus Brokers is an Authorised Financial Service Provider regulated by the FSCA under FSP No. 47995. This is a speculative redesign concept created for portfolio purposes. Company and service information sourced from the existing rebusbrokers.co.za website.</p>
+  </div>
+</footer>
+
+<script>
+  // scroll progress bar
+  const bar = document.getElementById('progress');
+  function updateProgress(){
+    const h = document.documentElement;
+    const scrolled = (h.scrollTop) / (h.scrollHeight - h.clientHeight) * 100;
+    bar.style.width = scrolled + '%';
+  }
+  document.addEventListener('scroll', updateProgress);
+  updateProgress();
+
+  // active nav link tracking
+  const sections = document.querySelectorAll('section[id]');
+  const links = document.querySelectorAll('nav.anchor-nav a');
+  function updateActive(){
+    let current = '';
+    sections.forEach(sec => {
+      const rect = sec.getBoundingClientRect();
+      if (rect.top <= 120 && rect.bottom > 120) current = sec.id;
+    });
+    links.forEach(link => {
+      link.classList.toggle('active', link.getAttribute('href') === '#' + current);
+    });
+  }
+  document.addEventListener('scroll', updateActive);
+  updateActive();
+</script>
+
+</body>
+</html>
