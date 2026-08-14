@@ -4,13 +4,51 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#123f32" />
 
   <title>Tshwane Transit | UX/UI Case Study | Neo Magadani</title>
 
-<meta
- name="description"
- content="Tshwane Transit is a concept transit service designed to help Tshwane commuters plan journeys, track buses and navigate transfers with greater confidence."
-/>
+  <meta name="description" content="Tshwane Transit is a concept transit service designed to help Tshwane commuters plan journeys, track buses and navigate transfers with greater confidence." />
+  <meta name="author" content="Neo Magadani" />
+  <meta name="robots" content="index, follow" />
+
+  <link rel="canonical" href="https://neomagadani.co.za/city-of-tshwane.html" />
+
+  <link rel="icon" type="image/png" href="./assets/img/favicon.png" />
+  <link rel="shortcut icon" type="image/png" href="./assets/img/favicon.png" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="article" />
+  <meta property="og:title" content="Tshwane Transit | UX/UI Case Study | Neo Magadani" />
+  <meta property="og:description" content="A UX/UI case study exploring a digital transit experience for Tshwane commuters." />
+  <meta property="og:url" content="https://neomagadani.co.za/city-of-tshwane.html" />
+  <meta property="og:site_name" content="Neo Magadani" />
+  <meta property="og:image" content="https://neomagadani.co.za/images/hero%20image.png" />
+  <meta property="og:image:alt" content="Tshwane Transit app interface" />
+
+  <!-- Twitter / X -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Tshwane Transit | UX/UI Case Study | Neo Magadani" />
+  <meta name="twitter:description" content="A UX/UI case study exploring a digital transit experience for Tshwane commuters." />
+  <meta name="twitter:image" content="https://neomagadani.co.za/images/hero%20image.png" />
+  <meta name="twitter:image:alt" content="Tshwane Transit app interface" />
+
+  <!-- Structured data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "CreativeWork",
+    "name": "Tshwane Transit",
+    "headline": "Tshwane Transit | UX/UI Case Study",
+    "description": "A UX/UI case study exploring a concept transit service designed to help Tshwane commuters plan journeys, track buses and navigate transfers with greater confidence.",
+    "url": "https://neomagadani.co.za/city-of-tshwane.html",
+    "image": "https://neomagadani.co.za/images/hero%20image.png",
+    "author": {"@type": "Person", "name": "Neo Magadani", "url": "https://neomagadani.co.za/"},
+    "creator": {"@type": "Person", "name": "Neo Magadani", "url": "https://neomagadani.co.za/"},
+    "genre": "UX/UI Design Case Study",
+    "keywords": ["UX design", "UI design", "product design", "Tshwane Transit", "case study"]
+  }
+  </script>
 
   <style>
     /* =========================================================
@@ -184,6 +222,17 @@
 
     .case-nav-inner::-webkit-scrollbar {
       display: none;
+    }
+
+    @media (max-width: 700px) {
+      .case-nav-inner {
+        -webkit-overflow-scrolling: touch;
+        padding-bottom: 1px;
+      }
+
+      .case-nav a {
+        min-height: 54px;
+      }
     }
 
     .case-nav a {
@@ -1230,11 +1279,11 @@
     <div class="container nav-inner">
 
 
-  <a href="./index.html" class="brand">
+  <a href="./index.html" class="brand" aria-label="Neo Magadani home">
     Neo Magadani
   </a>
 
-  <a href="./index.html" class="back-link">
+  <a href="./index.html" class="back-link" aria-label="Back to selected case studies">
     ← Back to work
   </a>
 
@@ -1284,12 +1333,12 @@
 
       <img
         src="images/hero image.png"
-        alt="Tshwane Transit app interface"
+        alt="Tshwane Transit app interface showing journey planning and transit information"
       />
 
       <div class="placeholder-content">
         <span class="placeholder-label">
-          Hero image
+          Tshwane Transit product interface
         </span>
       </div>
 
@@ -1324,11 +1373,11 @@
         </div>
 
         <p>
-          A commuter-focused transit concept shaped by 15 interviews,
-          a 50-person survey and usability testing. The final experience
-          prioritises destination-based journey planning, live tracking
-          and clearer transfer guidance, achieving 90% task completion
-          in prototype testing.
+          A commuter-focused transit concept informed by commuter research
+          and prototype testing. The final experience prioritises
+          destination-based journey planning, live tracking and clearer
+          transfer guidance, with testing used to identify and refine
+          usability issues before the final prototype.
         </p>
 
       </div>
@@ -2728,10 +2777,11 @@
       <div class="body-copy">
 
         <p>
-          I tested the prototype with 15 commuters across five
-          core tasks: finding a nearby bus, planning a cross-city
-          journey, tracking an approaching bus, checking Connector
-          Card balance and responding to a delay.
+          I tested the prototype across five core tasks: finding a nearby bus,
+          planning a cross-city journey, tracking an approaching bus,
+          checking Connector Card balance and responding to a delay.
+          The sessions helped identify where the experience needed
+          clearer navigation and guidance.
         </p>
 
       </div>
@@ -2742,41 +2792,18 @@
     <div class="testing-results reveal">
 
       <div class="testing-result">
-
-        <strong>
-          90%
-        </strong>
-
-        <span>
-          completed the tasks successfully
-        </span>
-
+        <strong>Clearer</strong>
+        <span>navigation became a priority after testing</span>
       </div>
 
-
       <div class="testing-result">
-
-        <strong>
-          87%
-        </strong>
-
-        <span>
-          understood the navigation without assistance
-        </span>
-
+        <strong>Guided</strong>
+        <span>directions were strengthened for complex journeys</span>
       </div>
 
-
       <div class="testing-result">
-
-        <strong>
-          93%
-        </strong>
-
-        <span>
-          preferred searching by destination
-        </span>
-
+        <strong>Focused</strong>
+        <span>destination search became a key interaction</span>
       </div>
 
     </div>
