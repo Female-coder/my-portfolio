@@ -2,31 +2,118 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
-    <meta name="description" content="Neo Magadani - UX Designer Portfolio">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+
+    <!-- Primary SEO -->
+    <title>Neo Magadani — UX Designer</title>
+
+    <meta name="description"
+          content="Neo Magadani is a UX Designer with a BA Honours in Psychology, focused on research-informed UX and product design that simplifies complex digital experiences.">
+
     <meta name="author" content="Neo Magadani">
-    <title>Neo Magadani - UX Designer</title>
+
+    <meta name="robots" content="index, follow">
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://neomagadani.co.za/">
 
     <!-- Favicon -->
-    <link rel="icon" type="image/png" href="./assets/img/favicon.png">
+    <link rel="icon"
+          type="image/png"
+          href="./assets/img/favicon.png">
+
+    <link rel="shortcut icon"
+          type="image/png"
+          href="./assets/img/favicon.png">
+
+    <!-- Open Graph / Social Sharing -->
+    <meta property="og:title"
+          content="Neo Magadani — UX Designer">
+
+    <meta property="og:description"
+          content="Research-informed UX and product design focused on simplifying complex digital experiences.">
+
+    <meta property="og:type"
+          content="website">
+
+    <meta property="og:url"
+          content="https://neomagadani.co.za/">
+
+    <meta property="og:site_name"
+          content="Neo Magadani">
+
+    <meta property="og:image"
+          content="https://neomagadani.co.za/assets/img/hero/hero.png">
+
+    <meta property="og:image:alt"
+          content="Neo Magadani UX design portfolio">
+
+    <!-- Twitter / X Card -->
+    <meta name="twitter:card"
+          content="summary_large_image">
+
+    <meta name="twitter:title"
+          content="Neo Magadani — UX Designer">
+
+    <meta name="twitter:description"
+          content="Research-informed UX and product design focused on simplifying complex digital experiences.">
+
+    <meta name="twitter:image"
+          content="https://neomagadani.co.za/assets/img/hero/hero.png">
+
+    <meta name="twitter:image:alt"
+          content="Neo Magadani UX design portfolio">
 
     <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com/">
-    <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700;800&display=swap">
+    <link rel="preconnect"
+          href="https://fonts.googleapis.com/">
 
-    <!-- Bootstrap CSS (CDN) -->
-    <link class="bootstrap-css" rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+    <link rel="preconnect"
+          href="https://fonts.gstatic.com/"
+          crossorigin>
 
-    <!-- Font Awesome 5 Free (CDN) -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet"
+          href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700;800&display=swap">
 
-    <!-- Animate.css for subtle micro-interactions -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <!-- Bootstrap CSS -->
+    <link
+        class="bootstrap-css"
+        rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
 
-    <!-- Custom Premium Minimal Styling Extends -->
+    <!-- Font Awesome -->
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+    <!-- Animate.css -->
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+
+
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Neo Magadani",
+        "url": "https://neomagadani.co.za/",
+        "jobTitle": "UX Designer",
+        "description": "UX Designer with a BA Honours in Psychology focused on research-informed UX and product design.",
+        "sameAs": [
+            "https://www.linkedin.com/in/neo-magadani/"
+        ]
+    }
+    </script>
+
+
     <style>
+
         :root {
             --primary-color: #5E27CB;
             --primary-light: #E7DBFF;
@@ -35,10 +122,12 @@
             --bg-light: #FBFBFC;
         }
 
+
         html {
             scroll-padding-top: 6rem;
             scroll-behavior: smooth;
         }
+
 
         body {
             font-family: "Sora", sans-serif;
@@ -47,17 +136,28 @@
             -webkit-font-smoothing: antialiased;
         }
 
+
         p {
             color: var(--text-muted);
             line-height: 1.75;
         }
 
-        /* Pure Purple Overrides */
-        .text-primary, .navbar-brand {
+
+        /* Accessibility */
+        :focus-visible {
+            outline: 3px solid var(--primary-color);
+            outline-offset: 3px;
+        }
+
+
+        /* Navigation */
+
+        .text-primary,
+        .navbar-brand {
             color: var(--primary-color) !important;
         }
 
-        /* Sticky Navigation Styling */
+
         .sticky-nav {
             background-color: rgba(255, 255, 255, 0.95);
             backdrop-filter: blur(10px);
@@ -66,6 +166,7 @@
             z-index: 1030;
         }
 
+
         .nav-link {
             color: var(--dark-color);
             font-weight: 500;
@@ -73,9 +174,12 @@
             position: relative;
         }
 
-        .nav-link:hover, .nav-link.active {
+
+        .nav-link:hover,
+        .nav-link.active {
             color: var(--primary-color) !important;
         }
+
 
         .nav-link.active::after {
             content: '';
@@ -88,24 +192,62 @@
             border-radius: 2px;
         }
 
-        /* Buttons & CTA Systems */
-        .btn-primary-gradient {
-            background: linear-gradient(135deg, var(--primary-color) 0%, #3B1682 100%);
-            color: #ffffff;
-            border: none;
-            transition: transform 0.2s ease, box-shadow 0.2s ease;
+
+        /* Mobile Navigation */
+
+        .mobile-menu {
+            border-top: 1px solid var(--primary-light);
+            background: rgba(255, 255, 255, 0.98);
         }
 
-        .hero-img-container {
-    padding: 0;
-    background: transparent;
-    box-shadow: none;
-}
+
+        .mobile-menu .nav-link {
+            padding: 0.75rem 0;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+        }
+
+
+        .mobile-menu .nav-link:last-child {
+            border-bottom: none;
+        }
+
+
+        .navbar-toggler {
+            border: 1px solid var(--primary-light);
+            border-radius: 10px;
+            padding: 0.55rem 0.7rem;
+        }
+
+
+        .navbar-toggler:focus {
+            box-shadow: 0 0 0 0.2rem rgba(94, 39, 203, 0.15);
+        }
+
+
+        /* Buttons */
+
+        .btn-primary-gradient {
+            background: linear-gradient(
+                135deg,
+                var(--primary-color) 0%,
+                #3B1682 100%
+            );
+
+            color: #ffffff;
+            border: none;
+
+            transition:
+                transform 0.2s ease,
+                box-shadow 0.2s ease;
+        }
+
+
         .btn-primary-gradient:hover {
             color: #ffffff;
             transform: translateY(-1px);
             box-shadow: 0 4px 15px rgba(94, 39, 203, 0.3);
         }
+
 
         .btn-primary-outlined {
             border: 2px solid var(--primary-color);
@@ -115,15 +257,28 @@
             transition: all 0.2s ease;
         }
 
+
         .btn-primary-outlined:hover {
             background-color: var(--primary-color);
             color: #ffffff;
         }
 
-        /* Premium Layout Features */
+
+        /* Hero */
+
+        .hero-img-container {
+            padding: 0;
+            background: transparent;
+            box-shadow: none;
+        }
+
+
+        /* Sections */
+
         .section-padding {
             padding: 7rem 0;
         }
+
 
         .section-title {
             font-size: 2.25rem;
@@ -132,7 +287,9 @@
             margin-bottom: 3rem;
         }
 
-        /* Cards & Layout Modules */
+
+        /* Cards */
+
         .featured-card {
             background: var(--bg-light);
             border: 1px solid rgba(94, 39, 203, 0.08);
@@ -141,9 +298,11 @@
             transition: transform 0.3s ease;
         }
 
+
         .featured-card:hover {
             transform: translateY(-4px);
         }
+
 
         .secondary-card {
             background: #ffffff;
@@ -152,10 +311,12 @@
             transition: all 0.3s ease;
         }
 
+
         .secondary-card:hover {
             border-color: var(--primary-light);
             box-shadow: 0 10px 30px rgba(94, 39, 203, 0.04);
         }
+
 
         .think-card {
             background: var(--bg-light);
@@ -165,225 +326,405 @@
             height: 100%;
         }
 
-        /* Checkmark List Items */
+
+        /* Problem Grid */
+
         .problem-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+            grid-template-columns: repeat(
+                auto-fill,
+                minmax(240px, 1fr)
+            );
+
             gap: 1.25rem;
         }
+
 
         .problem-item {
             background: var(--bg-light);
             padding: 1rem 1.5rem;
             border-radius: 12px;
             font-weight: 500;
+
             display: flex;
             align-items: center;
             gap: 0.75rem;
         }
 
+
         .problem-item i {
             color: var(--primary-color);
         }
 
+
+        /* Tools */
+
+        .tools-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+        }
+
+
+        .tool-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+
+            padding: 0.75rem 1rem;
+
+            border-radius: 999px;
+
+            background: var(--bg-light);
+            border: 1px solid rgba(94, 39, 203, 0.08);
+
+            color: var(--dark-color);
+
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+
+
+        .tool-badge i {
+            color: var(--primary-color);
+        }
+
+
         /* Badges */
+
         .bg-primary-subtle {
             background-color: var(--primary-light) !important;
             color: var(--primary-color) !important;
         }
 
-        /* Floating Top Button Layout logic */
+
+        /* Back To Top */
+
         .topbutton {
             position: fixed;
+
             bottom: 2rem;
             right: 2rem;
+
             background-color: #ffffff;
             color: var(--primary-color);
+
             width: 3rem;
             height: 3rem;
+
             display: flex;
             align-items: center;
             justify-content: center;
+
             font-size: 1.25rem;
+
             box-shadow: 0 4px 15px rgba(94, 39, 203, 0.1);
+
             border-radius: 50%;
+
             border: 1px solid rgba(94, 39, 203, 0.1);
+
             opacity: 0;
             visibility: hidden;
+
             transition: all 0.2s ease;
+
             z-index: 99;
         }
+
 
         .topbutton.btn-show {
             visibility: visible;
             opacity: 1;
         }
 
+
         .topbutton:hover {
             background: var(--primary-color);
             color: #ffffff;
         }
 
+
+        /* Contact */
+
         .contact-email-link {
             color: var(--primary-color);
             transition: opacity 0.2s ease;
         }
+
+
         .contact-email-link:hover {
             opacity: 0.85;
         }
 
-        /* Responsive Fixes */
+
+        /* Responsive */
+
         @media screen and (max-width: 991.98px) {
-            .hero-img-container { margin-top: 3rem; }
+
+            .hero-img-container {
+                margin-top: 3rem;
+            }
+
         }
+
+
         @media screen and (max-width: 767.98px) {
-            .section-padding { padding: 4.5rem 0; }
-            .section-title { font-size: 1.75rem; margin-bottom: 2rem; }
+
+            .section-padding {
+                padding: 4.5rem 0;
+            }
+
+            .section-title {
+                font-size: 1.75rem;
+                margin-bottom: 2rem;
+            }
+
+            .display-4 {
+                font-size: 2.3rem;
+            }
+
+            .display-5 {
+                font-size: 2rem;
+            }
+
+            .display-6 {
+                font-size: 1.5rem;
+            }
+
+            .problem-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .topbutton {
+                bottom: 1rem;
+                right: 1rem;
+            }
+
         }
+
+
+        @media (prefers-reduced-motion: reduce) {
+
+            html {
+                scroll-behavior: auto;
+            }
+
+            *,
+            *::before,
+            *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
+
+        }
+
     </style>
+
 </head>
+
+
 <body>
 
-    <!-- Sticky Navigation Bar -->
+
+    <!-- =========================================================
+         STICKY NAVIGATION
+         ========================================================= -->
+
     <header class="header-area sticky-top sticky-nav">
-        <div class="container d-flex align-items-center justify-content-between py-3">
-            <a href="#" class="navbar-brand fw-bold fs-4 tracking-tight">Neo Magadani</a>
-            <nav class="d-none d-md-flex gap-4" id="mainNav">
-                <a href="#work" class="nav-link">Work</a>
-                <a href="#process" class="nav-link">Process</a>
-                <a href="#about" class="nav-link">About</a>
-                <a href="#resume" class="nav-link">Resume</a>
-                <a href="#contact" class="nav-link">Contact</a>
-            </nav>
-            <div>
-                <a href="#contact" class="btn btn-primary-gradient rounded-pill px-4 py-2 fw-medium">Hire Me</a>
+
+        <div class="container">
+
+            <div class="d-flex align-items-center justify-content-between py-3">
+
+                <a href="#hero"
+                   class="navbar-brand fw-bold fs-4 tracking-tight"
+                   aria-label="Neo Magadani home">
+
+                    Neo Magadani
+
+                </a>
+
+
+                <!-- Desktop Navigation -->
+
+                <nav class="d-none d-md-flex gap-4"
+                     id="mainNav"
+                     aria-label="Primary navigation">
+
+                    <a href="#work" class="nav-link">Work</a>
+
+                    <a href="#process" class="nav-link">Process</a>
+
+                    <a href="#about" class="nav-link">About</a>
+
+                    <a href="#resume" class="nav-link">Resume</a>
+
+                    <a href="#contact" class="nav-link">Contact</a>
+
+                </nav>
+
+
+                <!-- Desktop CTA -->
+
+                <div class="d-none d-md-block">
+
+                    <a href="#contact"
+                       class="btn btn-primary-gradient rounded-pill px-4 py-2 fw-medium">
+
+                        Hire Me
+
+                    </a>
+
+                </div>
+
+
+                <!-- Mobile Menu Button -->
+
+                <button
+                    class="navbar-toggler d-md-none"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#mobileNavigation"
+                    aria-controls="mobileNavigation"
+                    aria-expanded="false"
+                    aria-label="Toggle navigation">
+
+                    <i class="fas fa-bars"></i>
+
+                </button>
+
             </div>
+
+
+            <!-- Mobile Navigation -->
+
+            <div class="collapse mobile-menu d-md-none"
+                 id="mobileNavigation">
+
+                <nav class="py-3"
+                     aria-label="Mobile navigation">
+
+                    <a href="#work"
+                       class="nav-link mobile-nav-link">
+
+                        Work
+
+                    </a>
+
+                    <a href="#process"
+                       class="nav-link mobile-nav-link">
+
+                        Process
+
+                    </a>
+
+                    <a href="#about"
+                       class="nav-link mobile-nav-link">
+
+                        About
+
+                    </a>
+
+                    <a href="#resume"
+                       class="nav-link mobile-nav-link">
+
+                        Resume
+
+                    </a>
+
+                    <a href="#contact"
+                       class="nav-link mobile-nav-link">
+
+                        Contact
+
+                    </a>
+
+                    <a href="#contact"
+                       class="btn btn-primary-gradient rounded-pill px-4 py-2 fw-medium mt-3">
+
+                        Hire Me
+
+                    </a>
+
+                </nav>
+
+            </div>
+
         </div>
+
     </header>
 
-    <!-- Balanced Split Hero Section with Image on the Right -->
-<section id="hero" class="hero-area min-vh-90 d-flex align-items-center bg-white section-padding pt-5 navigation-section">
-    <div class="container">
-        <div class="row align-items-center g-5">
 
-            <!-- Text Core -->
-            <div class="col-lg-7 text-start">
 
-                <span class="text-uppercase tracking-wider fw-bold text-primary small d-block mb-3">
-                    UX Designer
-                </span>
+    <!-- =========================================================
+         HERO
+         ========================================================= -->
 
-                <h1 class="display-4 fw-extrabold text-dark tracking-tight mb-4 animate__animated animate__fadeInUp">
-                    Designing products that simplify complexity, build trust and create experiences people enjoy using.
-                </h1>
+    <main>
 
-                <p class="fs-5 fw-normal text-secondary mb-5 col-xl-11 animate__animated animate__fadeInUp animate__delay-1s">
-                    BA Honours in Psychology graduate specialising in research-driven UX and product design.
-                </p>
+        <section
+            id="hero"
+            class="hero-area min-vh-90 d-flex align-items-center bg-white section-padding pt-5 navigation-section">
 
-                <div class="d-flex flex-wrap gap-3 animate__animated animate__fadeInUp animate__delay-1s">
+            <div class="container">
 
-                    <a href="#work" class="btn btn-primary-gradient px-4 py-3 rounded-pill fw-semibold">
-                        View Case Study
-                    </a>
+                <div class="row align-items-center g-5">
 
-                    <a href="./assets/img/UX_Design_CV.pdf"
-                       target="_blank"
-                       rel="noopener"
-                       class="btn btn-primary-outlined px-4 py-3 rounded-pill fw-semibold">
-                        View Resume
-                    </a>
 
-                </div>
-            </div>
-                <!-- Image Component Frame -->
-                <div class="col-lg-5 p-0 hero-img-container text-center animate__animated animate__fadeIn animate__delay-1s">
-                    
-                        <img src="./assets/img/hero/hero.png" alt="Neo Magadani UX Showcase" class="img-fluid rounded-4 shadow-sm">
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+                    <!-- Hero Text -->
 
-    <!-- Work Showcase Section (Case Studies Primary Focus) -->
-   <section id="work" class="portfolio-area section-padding border-top bg-white navigation-section">
-    <div class="container">
+                    <div class="col-lg-7 text-start">
 
-        <!-- =====================================================
-             CASE STUDY 01 — TSHWANE TRANSIT
-             Full Width Featured Case Study
-             ===================================================== -->
-        <div class="row mb-5">
-            <div class="col-12">
-                <div class="featured-card p-4 p-md-5">
+                        <span
+                            class="text-uppercase tracking-wider fw-bold text-primary small d-block mb-3">
 
-                    <div class="row align-items-center g-4 g-lg-5">
+                            UX Designer
 
-                        <!-- Image -->
-                        <div class="col-lg-7">
-                            <div class="bg-secondary bg-opacity-10 rounded-4 p-2 text-center overflow-hidden">
-                                <img 
-                                    src="./images/hero image.png" 
-                                    alt="Tshwane Transit mobile app interface"
-                                    class="img-fluid rounded-3 shadow-sm">
-                            </div>
-                        </div>
+                        </span>
 
-                        <!-- Content -->
-                        <div class="col-lg-5">
 
-                            <span class="badge bg-primary-subtle text-primary rounded-pill px-3 py-2 fw-semibold mb-3">
-                                Featured Case Study
-                            </span>
+                        <h1
+                            class="display-4 fw-extrabold text-dark tracking-tight mb-4 animate__animated animate__fadeInUp">
 
-                            <h2 class="fw-bold text-dark tracking-tight mb-3">
-                                Tshwane Transit
-                            </h2>
+                            Designing products that simplify complexity, build trust and create experiences people enjoy using.
 
-                            <p class="text-secondary mb-4">
-                                Designing a digital public transport experience to make bus journeys easier to plan, track, and navigate.
-                            </p>
+                        </h1>
 
-                            <!-- Project Details -->
-                            <div class="row g-3 mb-4 py-3 border-top border-bottom border-light">
 
-                                <div class="col-4">
-                                    <span class="d-block text-uppercase text-muted small fw-bold">
-                                        Role
-                                    </span>
-                                    <span class="fw-semibold text-dark small">
-                                        Lead UX
-                                    </span>
-                                </div>
+                        <p
+                            class="fs-5 fw-normal text-secondary mb-5 col-xl-11 animate__animated animate__fadeInUp animate__delay-1s">
 
-                                <div class="col-4">
-                                    <span class="d-block text-uppercase text-muted small fw-bold">
-                                        Timeline
-                                    </span>
-                                    <span class="fw-semibold text-dark small">
-                                        8 Weeks
-                                    </span>
-                                </div>
+                            BA Honours in Psychology graduate specialising in research-informed UX and product design.
 
-                                <div class="col-4">
-                                    <span class="d-block text-uppercase text-muted small fw-bold">
-                                        Outcome
-                                    </span>
-                                    <span class="fw-semibold text-dark small">
-                                        High-Fi Prototype
-                                    </span>
-                                </div>
+                        </p>
 
-                            </div>
 
-                            <!-- Link -->
-                            <a 
-                                href="./city-of-tshwane.html"
-                                class="text-primary fw-bold fs-5 text-decoration-none d-inline-flex align-items-center gap-2">
+                        <div
+                            class="d-flex flex-wrap gap-3 animate__animated animate__fadeInUp animate__delay-1s">
 
-                                Read Case Study 
-                                <i class="fas fa-arrow-right"></i>
+
+                            <!-- Updated CTA -->
+
+                            <a
+                                href="#work"
+                                class="btn btn-primary-gradient px-4 py-3 rounded-pill fw-semibold">
+
+                                Explore My Work
+
+                            </a>
+
+
+                            <!-- Resume -->
+
+                            <a
+                                href="./assets/img/UX_Design_CV.pdf"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                class="btn btn-primary-outlined px-4 py-3 rounded-pill fw-semibold">
+
+                                View Resume
 
                             </a>
 
@@ -391,61 +732,636 @@
 
                     </div>
 
+
+                    <!-- Hero Image -->
+
+                    <div
+                        class="col-lg-5 p-0 hero-img-container text-center animate__animated animate__fadeIn animate__delay-1s">
+
+                        <img
+                            src="./assets/img/hero/hero.png"
+                            alt="Neo Magadani UX design portfolio showcase"
+                            class="img-fluid rounded-4 shadow-sm"
+                            width="900"
+                            height="900">
+
+                    </div>
+
                 </div>
+
             </div>
-        </div>
+
+        </section>
 
 
-        <!-- =====================================================
-             CASE STUDY 02 + 03
-             Two Secondary Cards Side-by-Side
-             ===================================================== -->
-        <div class="row g-4">
+
+        <!-- =========================================================
+             WORK / CASE STUDIES
+             ========================================================= -->
+
+        <section
+            id="work"
+            class="portfolio-area section-padding border-top bg-white navigation-section">
+
+            <div class="container">
+<div class="row mb-5">
+
+    <div class="col-lg-8">
+
+        <h2 class="section-title mb-3">
+            Selected Case Studies
+        </h2>
+
+        <p class="fs-5 text-secondary mb-0">
+            A selection of UX and product design work exploring complex problems,
+            user needs, and practical digital experiences.
+        </p>
+
+    </div>
+
+</div>
+
+                <!-- Tshwane Transit -->
+
+                <div class="row mb-5">
+
+                    <div class="col-12">
+
+                        <div class="featured-card p-4 p-md-5">
+
+                            <div class="row align-items-center g-4 g-lg-5">
 
 
-            <!-- =================================================
-                 CASE STUDY 02 — REBUS BROKERS
-                 ================================================= -->
-            <div class="col-md-6">
+                                <!-- IMAGE -->
 
-                <div class="secondary-card p-4 h-100 d-flex flex-column justify-content-between">
+                                <div class="col-lg-7">
 
-                    <div>
+                                    <div
+                                        class="bg-secondary bg-opacity-10 rounded-4 p-2 text-center overflow-hidden">
 
-                        <!-- Image -->
-                        <div class="bg-light rounded-3 p-4 mb-4 text-center">
+                                        <!-- IMPORTANT:
+                                             Tshwane Transit path intentionally preserved exactly -->
 
-                            <img 
-                                src="./assets/img/rebus mockup.png"
-                                alt="Rebus Brokers insurance platform interface"
-                                class="img-fluid rounded shadow-xs">
+                                        <img
+                                            src="./images/hero image.png"
+                                            alt="Tshwane Transit mobile app interface"
+                                            class="img-fluid rounded-3 shadow-sm">
+
+                                    </div>
+
+                                </div>
+
+
+                                <!-- CONTENT -->
+
+                                <div class="col-lg-5">
+
+
+
+                                    <h2
+                                        class="fw-bold text-dark tracking-tight mb-3">
+
+                                        Tshwane Transit
+
+                                    </h2>
+
+
+                                    <p class="text-secondary mb-4">
+
+                                        Designing a digital public transport experience to make bus journeys easier to plan, track, and navigate.
+
+                                    </p>
+
+
+                                    <div
+                                        class="row g-3 mb-4 py-3 border-top border-bottom border-light">
+
+
+                                        <div class="col-4">
+
+                                            <span
+                                                class="d-block text-uppercase text-muted small fw-bold">
+
+                                                Role
+
+                                            </span>
+
+                                            <span
+                                                class="fw-semibold text-dark small">
+
+                                                Lead UX
+
+                                            </span>
+
+                                        </div>
+
+
+                                        <div class="col-4">
+
+                                            <span
+                                                class="d-block text-uppercase text-muted small fw-bold">
+
+                                                Timeline
+
+                                            </span>
+
+                                            <span
+                                                class="fw-semibold text-dark small">
+
+                                                8 Weeks
+
+                                            </span>
+
+                                        </div>
+
+
+                                        <div class="col-4">
+
+                                            <span
+                                                class="d-block text-uppercase text-muted small fw-bold">
+
+                                                Outcome
+
+                                            </span>
+
+                                            <span
+                                                class="fw-semibold text-dark small">
+
+                                                High-Fi Prototype
+
+                                            </span>
+
+                                        </div>
+
+                                    </div>
+
+
+                                    <a
+                                        href="./city-of-tshwane.html"
+                                        class="text-primary fw-bold fs-5 text-decoration-none d-inline-flex align-items-center gap-2">
+
+                                        Read Case Study
+
+                                        <i
+                                            class="fas fa-arrow-right"
+                                            aria-hidden="true"></i>
+
+                                    </a>
+
+                                </div>
+
+                            </div>
 
                         </div>
 
-                        <span class="text-primary small fw-bold text-uppercase tracking-wider">
-                            Case Study 02
-                        </span>
+                    </div>
 
-                        <h3 class="h4 fw-bold text-dark mt-2 mb-3">
-                            Rebus Brokers
-                        </h3>
+                </div>
 
-                        <p class="text-secondary small">
-                            Redesigning an insurance platform to simplify complex broker workflows.
+
+
+                <!-- Rebus + Thrive -->
+
+                <div class="row g-4">
+
+
+                    <!-- Rebus Brokers -->
+
+                    <div class="col-md-6">
+
+                        <div
+                            class="secondary-card p-4 h-100 d-flex flex-column justify-content-between">
+
+                            <div>
+
+                                <div
+                                    class="bg-light rounded-3 p-4 mb-4 text-center">
+
+                                    <img
+                                        src="./assets/img/rebus mockup.png"
+                                        alt="Rebus Brokers insurance platform interface"
+                                        class="img-fluid rounded shadow-xs">
+
+                                </div>
+
+
+                                <span
+                                    class="text-primary small fw-bold text-uppercase tracking-wider">
+
+                                    Case Study 02
+
+                                </span>
+
+
+                                <h3
+                                    class="h4 fw-bold text-dark mt-2 mb-3">
+
+                                    Rebus Brokers
+
+                                </h3>
+
+
+                                <p class="text-secondary small">
+
+                                    Redesigning an insurance platform to simplify complex broker workflows.
+
+                                </p>
+
+                            </div>
+
+
+                            <div class="pt-3 mt-auto">
+
+                                <a
+                                    href="./rebus-case-study.html"
+                                    class="text-primary fw-bold text-decoration-none d-inline-flex align-items-center gap-1">
+
+                                    Read Case Study
+
+                                    <i
+                                        class="fas fa-arrow-right fs-7"
+                                        aria-hidden="true"></i>
+
+                                </a>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+
+                    <!-- Thrive -->
+
+                    <div class="col-md-6">
+
+                        <div
+                            class="secondary-card p-4 h-100 d-flex flex-column justify-content-between">
+
+                            <div>
+
+                                <div
+                                    class="bg-light rounded-3 p-4 mb-4 text-center">
+
+                                    <img
+                                        src="./assets/img/AFTER DESKTOP.png"
+                                        alt="Thrive Support Network case management dashboard interface"
+                                        class="img-fluid rounded shadow-xs">
+
+                                </div>
+
+
+                                <span
+                                    class="text-primary small fw-bold text-uppercase tracking-wider">
+
+                                    Case Study 03
+
+                                </span>
+
+
+                                <h3
+                                    class="h4 fw-bold text-dark mt-2 mb-3">
+
+                                    Thrive Support Network
+
+                                </h3>
+
+
+                                <p class="text-secondary small">
+
+                                    Designing a trauma-informed case management dashboard to simplify reporting and support social workers.
+
+                                </p>
+
+                            </div>
+
+
+                            <div class="pt-3 mt-auto">
+
+                                <a
+                                    href="./Thrive.html"
+                                    class="text-primary fw-bold text-decoration-none d-inline-flex align-items-center gap-1">
+
+                                    Read Case Study
+
+                                    <i
+                                        class="fas fa-arrow-right fs-7"
+                                        aria-hidden="true"></i>
+
+                                </a>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =========================================================
+             HOW I THINK
+             ========================================================= -->
+
+        <section
+            id="process"
+            class="process-area section-padding border-top bg-white navigation-section">
+
+            <div class="container">
+
+                <h2 class="section-title">
+
+                    How I Think
+
+                </h2>
+
+
+                <div class="row g-4">
+
+
+                    <div class="col-lg-4 col-md-6">
+
+                        <div class="think-card">
+
+                            <div class="mb-4 text-primary">
+
+                                <i
+                                    class="fas fa-brain fa-2xl"
+                                    aria-hidden="true"></i>
+
+                            </div>
+
+
+                            <h3 class="h4 fw-bold text-dark mb-3">
+
+                                Psychology First
+
+                            </h3>
+
+
+                            <p class="text-secondary mb-0">
+
+                                I use behavioural insight to understand why users struggle, what motivates them, and where friction begins.
+
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+
+                    <div class="col-lg-4 col-md-6">
+
+                        <div class="think-card">
+
+                            <div class="mb-4 text-primary">
+
+                                <i
+                                    class="fas fa-compress-alt fa-2xl"
+                                    aria-hidden="true"></i>
+
+                            </div>
+
+
+                            <h3 class="h4 fw-bold text-dark mb-3">
+
+                                Simplify complexity
+
+                            </h3>
+
+
+                            <p class="text-secondary mb-0">
+
+                                I turn complex workflows into clear, intuitive experiences.
+
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+
+                    <div class="col-lg-4 col-md-12">
+
+                        <div class="think-card">
+
+                            <div class="mb-4 text-primary">
+
+                                <i
+                                    class="fas fa-chart-line fa-2xl"
+                                    aria-hidden="true"></i>
+
+                            </div>
+
+
+                            <h3 class="h4 fw-bold text-dark mb-3">
+
+                                Evidence over assumptions
+
+                            </h3>
+
+
+                            <p class="text-secondary mb-0">
+
+                                I use research, usability principles and iteration to make informed design decisions.
+
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =========================================================
+             ABOUT
+             ========================================================= -->
+
+        <section
+            id="about"
+            class="about-area section-padding border-top bg-white navigation-section">
+
+            <div class="container">
+
+                <div class="row justify-content-between g-5 align-items-start">
+
+                    <div class="col-lg-8">
+
+                        <h2 class="section-title mb-4">
+
+                            About Me
+
+                        </h2>
+
+
+                        <p class="fs-5 text-dark lh-base mb-4">
+
+                            I’m
+                            <strong class="text-primary">
+                                Neo Magadani
+                            </strong>,
+                            a UX Designer with a
+                            <strong>
+                                BA Honours in Psychology
+                            </strong>,
+                            bringing together an understanding of human behaviour, problem-solving, and digital product design.
+
+                        </p>
+
+
+                        <p class="text-secondary mb-4">
+
+                            My background in Psychology shaped the way I approach design: with curiosity about people, attention to how they interact with systems, and a desire to understand the problems behind the interface.
+
+                        </p>
+
+
+                        <p class="text-secondary mb-4">
+
+                            I enjoy working on complex products and turning them into experiences that are clearer, more intuitive, and easier to navigate. From mapping user journeys to designing workflows and refining interfaces, I’m interested in creating solutions that work for both the people using them and the teams building them.
+
+                        </p>
+
+
+                        <p class="text-secondary mb-0">
+
+                            I’m especially drawn to products where people, technology, and business needs intersect, because that’s where thoughtful design can make a meaningful difference.
+
                         </p>
 
                     </div>
 
-                    <div class="pt-3 mt-auto">
+                </div>
 
-                        <a 
-                            href="./rebus-case-study.html"
-                            class="text-primary fw-bold text-decoration-none d-inline-flex align-items-center gap-1">
+            </div>
 
-                            Read Case Study 
-                            <i class="fas fa-arrow-right fs-7"></i>
+        </section>
 
-                        </a>
+
+
+        <!-- =========================================================
+             PROBLEMS
+             ========================================================= -->
+
+        <section
+            class="problems-area section-padding border-top bg-white">
+
+            <div class="container">
+
+                <h2 class="section-title">
+
+                    Problems I enjoy solving
+
+                </h2>
+
+
+                <p class="fs-5 text-secondary mb-5 col-lg-8">
+
+                    I enjoy working on products that involve:
+
+                </p>
+
+
+                <div class="problem-grid">
+
+                    <div class="problem-item">
+
+                        <i
+                            class="fas fa-check"
+                            aria-hidden="true"></i>
+
+                        Complex workflows
+
+                    </div>
+
+
+                    <div class="problem-item">
+
+                        <i
+                            class="fas fa-check"
+                            aria-hidden="true"></i>
+
+                        Enterprise systems
+
+                    </div>
+
+
+                    <div class="problem-item">
+
+                        <i
+                            class="fas fa-check"
+                            aria-hidden="true"></i>
+
+                        Accessibility
+
+                    </div>
+
+
+                    <div class="problem-item">
+
+                        <i
+                            class="fas fa-check"
+                            aria-hidden="true"></i>
+
+                        Behaviour-driven design
+
+                    </div>
+
+
+                    <div class="problem-item">
+
+                        <i
+                            class="fas fa-check"
+                            aria-hidden="true"></i>
+
+                        Information architecture
+
+                    </div>
+
+
+                    <div class="problem-item">
+
+                        <i
+                            class="fas fa-check"
+                            aria-hidden="true"></i>
+
+                        Research
+
+                    </div>
+
+
+                    <div class="problem-item">
+
+                        <i
+                            class="fas fa-check"
+                            aria-hidden="true"></i>
+
+                        Design systems
+
+                    </div>
+
+
+                    <div class="problem-item">
+
+                        <i
+                            class="fas fa-check"
+                            aria-hidden="true"></i>
+
+                        Products with business impact
 
                     </div>
 
@@ -453,228 +1369,483 @@
 
             </div>
 
+        </section>
 
-            <!-- =================================================
-                 CASE STUDY 03 — THRIVE
-                 ================================================= -->
-            <div class="col-md-6">
 
-                <div class="secondary-card p-4 h-100 d-flex flex-column justify-content-between">
 
-                    <div>
+        <!-- =========================================================
+             TOOLS & CAPABILITIES
+             ========================================================= -->
 
-                        <!-- Image -->
-                        <div class="bg-light rounded-3 p-4 mb-4 text-center">
+        <section
+            id="tools"
+            class="tools-area section-padding border-top bg-white">
 
-                            <img 
-                                src="./assets/img/AFTER DESKTOP.png"
-                                alt="Thrive case management dashboard interface"
-                                class="img-fluid rounded shadow-xs">
+            <div class="container">
+
+                <div class="row">
+
+                    <div class="col-lg-8">
+
+                        <h2 class="section-title mb-3">
+
+                            Tools & Capabilities
+
+                        </h2>
+
+
+                        <p class="fs-5 text-secondary mb-4">
+
+                            I combine UX thinking, visual design, research-informed problem solving, and front-end knowledge to move ideas from problem to prototype.
+
+                        </p>
+
+
+                        <div class="tools-grid">
+
+
+                            <span class="tool-badge">
+
+                                <i class="fas fa-pencil-ruler"
+                                   aria-hidden="true"></i>
+
+                                Figma
+
+                            </span>
+
+
+                            <span class="tool-badge">
+
+                                <i class="fas fa-users"
+                                   aria-hidden="true"></i>
+
+                                UX Research
+
+                            </span>
+
+
+                            <span class="tool-badge">
+
+                                <i class="fas fa-sitemap"
+                                   aria-hidden="true"></i>
+
+                                Information Architecture
+
+                            </span>
+
+
+                            <span class="tool-badge">
+
+                                <i class="fas fa-project-diagram"
+                                   aria-hidden="true"></i>
+
+                                User Flows
+
+                            </span>
+
+
+                            <span class="tool-badge">
+
+                                <i class="fas fa-layer-group"
+                                   aria-hidden="true"></i>
+
+                                Wireframing
+
+                            </span>
+
+
+                            <span class="tool-badge">
+
+                                <i class="fas fa-mobile-alt"
+                                   aria-hidden="true"></i>
+
+                                Prototyping
+
+                            </span>
+
+
+                            <span class="tool-badge">
+
+                                <i class="fas fa-vial"
+                                   aria-hidden="true"></i>
+
+                                Usability Principles
+
+                            </span>
+
+
+                            <span class="tool-badge">
+
+                                <i class="fab fa-html5"
+                                   aria-hidden="true"></i>
+
+                                HTML
+
+                            </span>
+
+
+                            <span class="tool-badge">
+
+                                <i class="fab fa-css3-alt"
+                                   aria-hidden="true"></i>
+
+                                CSS
+
+                            </span>
+
+
+                            <span class="tool-badge">
+
+                                <i class="fab fa-js-square"
+                                   aria-hidden="true"></i>
+
+                                JavaScript
+
+                            </span>
+
+
+                            <span class="tool-badge">
+
+                                <i class="fas fa-universal-access"
+                                   aria-hidden="true"></i>
+
+                                Accessibility
+
+                            </span>
+
+
+                            <span class="tool-badge">
+
+                                <i class="fas fa-sync-alt"
+                                   aria-hidden="true"></i>
+
+                                Iterative Design
+
+                            </span>
+
 
                         </div>
 
-                        <span class="text-primary small fw-bold text-uppercase tracking-wider">
-                            Case Study 03
-                        </span>
-
-                        <h3 class="h4 fw-bold text-dark mt-2 mb-3">
-                            Thrive Support Network
-                        </h3>
-
-                        <p class="text-secondary small">
-                            Designing a trauma-informed case management dashboard to simplify reporting and support social workers.
-                        </p>
-
                     </div>
-                      <div class="pt-3 mt-auto">
-
-                        <a 
-                            href="./Thrive.html"
-                            class="text-primary fw-bold text-decoration-none d-inline-flex align-items-center gap-1">
-
-                            Read Case Study 
-                            <i class="fas fa-arrow-right fs-7"></i>
-
-                        </a>
 
                 </div>
 
             </div>
 
+        </section>
 
-        </div>
 
-    </div>
-</section>
 
-    <!-- Strategic Philosophy Section -->
-    <section id="process" class="process-area section-padding border-top bg-white navigation-section">
-        <div class="container">
-            <h2 class="section-title">How I Think</h2>
-            <div class="row g-4">
-                <div class="col-lg-4 col-md-6">
-                    <div class="think-card">
-                        <div class="mb-4 text-primary"><i class="fas fa-brain fa-2xl"></i></div>
-                        <h3 class="h4 fw-bold text-dark mb-3">Psychology First</h3>
-                        <p class="text-secondary mb-0">I use behavioural insight to understand why users struggle, what motivates them, and where friction begins.</p>
-                    </div>
+        <!-- =========================================================
+             RESUME
+             ========================================================= -->
+
+        <section
+            id="resume"
+            class="resume-cta-area section-padding border-top bg-light text-center navigation-section">
+
+            <div class="container py-4">
+
+                <h2 class="fw-bold tracking-tight text-dark mb-3">
+
+                    Interested in how I work?
+
+                </h2>
+
+
+                <p class="fs-5 text-secondary mb-5">
+
+                    Download my detailed CV or view my professional networks immediately.
+
+                </p>
+
+
+                <div class="d-flex flex-wrap justify-content-center gap-3">
+
+
+                    <a
+                        href="./assets/img/UX_Design_CV.pdf"
+                        class="btn btn-primary-gradient px-4 py-3 rounded-pill fw-semibold"
+                        download>
+
+                        <i
+                            class="fas fa-download me-2"
+                            aria-hidden="true"></i>
+
+                        Download Resume
+
+                    </a>
+
+
+                    <a
+                        href="https://www.linkedin.com/in/neo-magadani/"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="btn btn-primary-outlined px-4 py-3 rounded-pill fw-semibold">
+
+                        <i
+                            class="fab fa-linkedin me-2"
+                            aria-hidden="true"></i>
+
+                        View LinkedIn
+
+                    </a>
+
+
+                    <a
+                        href="mailto:magadanineo@gmail.com"
+                        class="btn btn-outline-secondary border-secondary px-4 py-3 rounded-pill fw-semibold text-dark">
+
+                        <i
+                            class="fas fa-envelope me-2"
+                            aria-hidden="true"></i>
+
+                        Email Me
+
+                    </a>
+
                 </div>
-                <div class="col-lg-4 col-md-6">
-                    <div class="think-card">
-                        <div class="mb-4 text-primary"><i class="fas fa-compress-alt fa-2xl"></i></div>
-                        <h3 class="h4 fw-bold text-dark mb-3">Simplify complexity</h3>
-                        <p class="text-secondary mb-0">I turn complex workflows into clear, intuitive experiences.</p>
-                    </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =========================================================
+             CONTACT
+             ========================================================= -->
+
+        <section
+            id="contact"
+            class="contact-personal-area section-padding border-top bg-white text-center navigation-section">
+
+            <div class="container col-xl-7 col-lg-9">
+
+                <h2
+                    class="display-5 fw-extrabold text-dark tracking-tight mb-4">
+
+                    Let's build products people enjoy using.
+
+                </h2>
+
+
+                <p class="fs-4 text-secondary mb-5">
+
+                    Whether you're hiring, collaborating, or simply want to chat about design, I'd love to hear from you.
+
+                </p>
+
+
+                <div class="mb-5">
+
+                    <a
+                        href="mailto:magadanineo@gmail.com"
+                        class="display-6 fw-bold contact-email-link text-decoration-none tracking-tight text-break">
+
+                        magadanineo@gmail.com
+
+                    </a>
+
                 </div>
-                <div class="col-lg-4 col-md-12">
-                    <div class="think-card">
-                        <div class="mb-4 text-primary"><i class="fas fa-chart-line fa-2xl"></i></div>
-                        <h3 class="h4 fw-bold text-dark mb-3">Evidence over assumptions</h3>
-                        <p class="text-secondary mb-0">I use research, usability principles and iteration to make informed design decisions.</p>
-                    </div>
+
+
+                <div
+                    class="d-flex justify-content-center gap-4 py-2">
+
+                    <a
+                        href="https://www.linkedin.com/in/neo-magadani/"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="fw-bold text-dark text-decoration-none border-bottom border-dark pb-1">
+
+                        LinkedIn
+
+                    </a>
+
+
+                    <a
+                        href="./assets/img/UX_Design_CV.pdf"
+                        class="fw-bold text-dark text-decoration-none border-bottom border-dark pb-1"
+                        download>
+
+                        Resume
+
+                    </a>
+
                 </div>
-            </div>
-        </div>
-    </section>
 
-    <!-- Strategic Narrative Personal Identity Section -->
-    <!-- About Me -->
-<section id="about" class="about-area section-padding border-top bg-white navigation-section">
-    <div class="container">
-        <div class="row justify-content-between g-5 align-items-start">
-
-            <div class="col-lg-8">
-                <h2 class="section-title mb-4">About Me</h2>
-
-                <p class="fs-5 text-dark lh-base mb-4">
-                    I’m <strong class="text-primary">Neo Magadani</strong>, a UX Designer with a
-                    <strong>BA Honours in Psychology</strong>, bringing together an understanding
-                    of human behaviour, problem-solving, and digital product design.
-                </p>
-
-                <p class="text-secondary mb-4">
-                    My background in Psychology shaped the way I approach design: with curiosity
-                    about people, attention to how they interact with systems, and a desire to
-                    understand the problems behind the interface.
-                </p>
-
-                <p class="text-secondary mb-4">
-                    I enjoy working on complex products and turning them into experiences that are
-                    clearer, more intuitive, and easier to navigate. From mapping user journeys to
-                    designing workflows and refining interfaces, I’m interested in creating
-                    solutions that work for both the people using them and the teams building them.
-                </p>
-
-                <p class="text-secondary mb-0">
-                    I’m especially drawn to products where
-                    people, technology, and business needs intersect, because that’s where thoughtful design can make a meaningful difference.
-                </p>
             </div>
 
-        </div>
-    </div>
-</section>
+        </section>
 
-    <!-- Niche Targeted Capabilities Matrix Section -->
-    <section class="problems-area section-padding border-top bg-white">
-        <div class="container">
-            <h2 class="section-title">Problems I enjoy solving</h2>
-            <p class="fs-5 text-secondary mb-5 col-lg-8">I enjoy working on products that involve:</p>
-            
-            <div class="problem-grid">
-                <div class="problem-item"><i class="fas fa-check"></i> Complex workflows</div>
-                <div class="problem-item"><i class="fas fa-check"></i> Enterprise systems</div>
-                <div class="problem-item"><i class="fas fa-check"></i> Accessibility</div>
-                <div class="problem-item"><i class="fas fa-check"></i> Behaviour-driven design</div>
-                <div class="problem-item"><i class="fas fa-check"></i> Information architecture</div>
-                <div class="problem-item"><i class="fas fa-check"></i> Research</div>
-                <div class="problem-item"><i class="fas fa-check"></i> Design systems</div>
-                <div class="problem-item"><i class="fas fa-check"></i> Products with business impact</div>
-            </div>
-        </div>
-    </section>
+    </main>
 
-    <!-- Clean Direct Portfolio Assets Access Frame -->
-    <section id="resume" class="resume-cta-area section-padding border-top bg-light text-center navigation-section">
-        <div class="container py-4">
-            <h2 class="fw-bold tracking-tight text-dark mb-3">Interested in how I work?</h2>
-            <p class="fs-5 text-secondary mb-5">Download my detailed CV or view my professional networks immediately.</p>
-            <div class="d-flex flex-wrap justify-content-center gap-3">
-                <a href="./assets/img/UX_Design_CV.pdf" class="btn btn-primary-gradient px-4 py-3 rounded-pill fw-semibold" download><i class="fas fa-download me-2"></i> Download Resume</a>
-                <a href="https://www.linkedin.com/in/neo-magadani/" target="_blank" class="btn btn-primary-outlined px-4 py-3 rounded-pill fw-semibold"><i class="fab fa-linkedin me-2"></i> View LinkedIn</a>
-                <a href="mailto:magadanineo@gmail.com" class="btn btn-outline-secondary border-secondary px-4 py-3 rounded-pill fw-semibold text-dark"><i class="fas fa-envelope me-2"></i> Email Me</a>
-            </div>
-        </div>
-    </section>
 
-    <!-- Simplified and Personalized Footer Contact Framework -->
-    <section id="contact" class="contact-personal-area section-padding border-top bg-white text-center navigation-section">
-        <div class="container col-xl-7 col-lg-9">
-            <h2 class="display-5 fw-extrabold text-dark tracking-tight mb-4">Let's build products people enjoy using.</h2>
-            <p class="fs-4 text-secondary mb-5">
-                Whether you're hiring, collaborating, or simply want to chat about design, I'd love to hear from you.
-            </p>
-            
-            <div class="mb-5">
-                <a href="mailto:magadanineo@gmail.com" class="display-6 fw-bold contact-email-link text-decoration-none tracking-tight text-break">magadanineo@gmail.com</a>
-            </div>
-            
-            <div class="d-flex justify-content-center gap-4 py-2">
-                <a href="https://www.linkedin.com/in/neo-magadani/" target="_blank" class="fw-bold text-dark text-decoration-none border-bottom border-dark pb-1">LinkedIn</a>
-                <a href="./assets/img/UX_Design_CV.pdf" class="fw-bold text-dark text-decoration-none border-bottom border-dark pb-1" download>Resume</a>
-            </div>
-        </div>
-    </section>
 
-    <!-- Structural Baseline Copyright Statement Footer -->
-    <footer class="py-4 border-top border-light bg-white">
+    <!-- =========================================================
+         FOOTER
+         ========================================================= -->
+
+    <footer
+        class="py-4 border-top border-light bg-white">
+
         <div class="container text-center">
-            <span class="small text-muted">&copy; 2026 Neo Magadani. Built for clarity and scannability.</span>
+
+            <span class="small text-muted">
+
+                &copy; 2026 Neo Magadani. Built for clarity and scannability.
+
+            </span>
+
         </div>
+
     </footer>
 
-    <!-- Back To Top Floating Interactive Element -->
-    <button class="topbutton shadow" id="backToTopBtn" aria-label="Scroll back to top">
-        <i class="fas fa-arrow-up"></i>
+
+
+    <!-- =========================================================
+         BACK TO TOP
+         ========================================================= -->
+
+    <button
+        class="topbutton shadow"
+        id="backToTopBtn"
+        aria-label="Scroll back to top">
+
+        <i
+            class="fas fa-arrow-up"
+            aria-hidden="true"></i>
+
     </button>
 
-    <!-- Structural Layout Support Library Framework Script Assets -->
-    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
-    <!-- Custom Event Target Handlers Logic -->
+
+    <!-- =========================================================
+         JAVASCRIPT
+         ========================================================= -->
+
+    <script
+        src="https://code.jquery.com/jquery-3.7.1.min.js">
+    </script>
+
+
+    <script
+        src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js">
+    </script>
+
+
     <script>
+
         $(document).ready(function() {
-            // ScrollSpy tracking logic
+
+
+            /* =====================================================
+               SCROLLSPY
+               ===================================================== */
+
             const sections = $('.navigation-section');
+
             const navLinks = $('#mainNav .nav-link');
 
+
             $(window).on('scroll', function() {
-                let currentPos = $(this).scrollTop() + 120; // offset to trigger slightly early
+
+                let currentPos = $(this).scrollTop() + 120;
+
 
                 sections.each(function() {
+
                     let top = $(this).offset().top;
+
                     let bottom = top + $(this).outerHeight();
+
                     let id = $(this).attr('id');
 
-                    if (currentPos >= top && currentPos <= bottom) {
+
+                    if (
+                        id &&
+                        currentPos >= top &&
+                        currentPos <= bottom
+                    ) {
+
                         navLinks.removeClass('active');
-                        $('#mainNav').find(`[href="#${id}"]`).addClass('active');
+
+                        $('#mainNav')
+                            .find(`[href="#${id}"]`)
+                            .addClass('active');
+
                     }
+
                 });
-                
-                // Back to Top button logic
+
+
+                /* Back to top */
+
                 if ($(this).scrollTop() > 400) {
-                    $('#backToTopBtn').addClass('btn-show');
+
+                    $('#backToTopBtn')
+                        .addClass('btn-show');
+
                 } else {
-                    $('#backToTopBtn').removeClass('btn-show');
+
+                    $('#backToTopBtn')
+                        .removeClass('btn-show');
+
                 }
+
             });
-            
+
+
+            /* =====================================================
+               BACK TO TOP
+               ===================================================== */
+
             $('#backToTopBtn').click(function() {
-                window.scrollTo({ top: 0, behavior: 'smooth' });
+
+                window.scrollTo({
+
+                    top: 0,
+
+                    behavior: 'smooth'
+
+                });
+
             });
+
+
+            /* =====================================================
+               CLOSE MOBILE MENU AFTER CLICKING A LINK
+               ===================================================== */
+
+            $('.mobile-nav-link, #mobileNavigation .btn')
+                .on('click', function() {
+
+                    const mobileNavigation =
+                        document.getElementById(
+                            'mobileNavigation'
+                        );
+
+
+                    const collapse =
+                        bootstrap.Collapse.getInstance(
+                            mobileNavigation
+                        );
+
+
+                    if (collapse) {
+
+                        collapse.hide();
+
+                    }
+
+                });
+
+
         });
+
     </script>
+
+
 </body>
 </html>
