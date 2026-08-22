@@ -526,12 +526,399 @@
 
         }
 
+
+        /* =====================================================
+           SCROLL PROGRESS BAR
+           ===================================================== */
+
+        .scroll-progress {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 3px;
+            width: 0%;
+            background: linear-gradient(90deg, var(--primary-color), #9B6DFF);
+            z-index: 1101;
+            transition: width 0.1s ease-out;
+        }
+
+
+        /* =====================================================
+           AMBIENT MOTION (background orbs)
+           ===================================================== */
+
+        .ambient-field {
+            position: absolute;
+            inset: 0;
+            overflow: hidden;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .orb {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(60px);
+            opacity: 0.35;
+            background: radial-gradient(circle at 30% 30%, var(--primary-light), var(--primary-color) 70%);
+            animation: drift 22s ease-in-out infinite;
+            will-change: transform;
+        }
+
+        .orb-1 { width: 340px; height: 340px; top: -80px; right: -60px; animation-duration: 26s; }
+        .orb-2 { width: 220px; height: 220px; bottom: -60px; left: -40px; animation-duration: 19s; animation-delay: -6s; opacity: 0.25; }
+        .orb-3 { width: 160px; height: 160px; top: 40%; right: 15%; animation-duration: 24s; animation-delay: -3s; opacity: 0.2; }
+
+        @keyframes drift {
+            0%, 100% { transform: translate(0, 0) scale(1); }
+            33% { transform: translate(-20px, 25px) scale(1.08); }
+            66% { transform: translate(18px, -15px) scale(0.95); }
+        }
+
+        @keyframes float-y {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-14px); }
+        }
+
+        @keyframes pulse-soft {
+            0%, 100% { opacity: 0.6; transform: scale(1); }
+            50% { opacity: 1; transform: scale(1.06); }
+        }
+
+        section.navigation-section,
+        section.problems-area,
+        section.tools-area {
+            position: relative;
+            isolation: isolate;
+        }
+
+
+        /* =====================================================
+           SCROLL REVEAL SYSTEM
+           ===================================================== */
+
+        .section-title,
+        .portfolio-area p.fs-5,
+        .featured-card,
+        .secondary-card,
+        .think-card,
+        .about-area p,
+        .about-decoration,
+        .problem-item,
+        .tool-badge,
+        .process-illustration,
+        .resume-cta-area h2,
+        .resume-cta-area p,
+        .resume-cta-area .d-flex,
+        .contact-personal-area h2,
+        .contact-personal-area p,
+        .contact-personal-area .mb-5,
+        .contact-personal-area .d-flex {
+            opacity: 0;
+            transform: translateY(28px);
+            transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1),
+                        transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .process-illustration {
+            transform: translateY(28px) scale(0.96);
+        }
+
+        .in-view {
+            opacity: 1 !important;
+            transform: translateY(0) scale(1) !important;
+        }
+
+
+        /* =====================================================
+           HOVER MICRO-INTERACTIONS
+           ===================================================== */
+
+        .featured-card,
+        .secondary-card {
+            will-change: transform;
+        }
+
+        .featured-card:hover,
+        .secondary-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 18px 40px rgba(94, 39, 203, 0.10);
+        }
+
+        .featured-card .overflow-hidden img,
+        .secondary-card img {
+            transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .featured-card:hover .overflow-hidden img,
+        .secondary-card:hover img {
+            transform: scale(1.045);
+        }
+
+        .think-card {
+            transition: transform 0.35s ease, box-shadow 0.35s ease, border-color 0.35s ease;
+        }
+
+        .think-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 14px 30px rgba(94, 39, 203, 0.10);
+        }
+
+        .think-card:hover i {
+            animation: pulse-soft 1.1s ease-in-out infinite;
+        }
+
+        .think-card i {
+            display: inline-block;
+            transition: transform 0.3s ease;
+        }
+
+        .problem-item {
+            transition: transform 0.25s ease, background-color 0.25s ease;
+        }
+
+        .problem-item:hover {
+            transform: translateX(4px);
+            background-color: var(--primary-light);
+        }
+
+        .problem-item i {
+            transition: transform 0.25s ease;
+        }
+
+        .problem-item:hover i {
+            transform: scale(1.2);
+        }
+
+        .tool-badge {
+            transition: transform 0.25s ease, background-color 0.25s ease, color 0.25s ease, border-color 0.25s ease;
+        }
+
+        .tool-badge:hover {
+            transform: translateY(-3px);
+            background-color: var(--primary-color);
+            border-color: var(--primary-color);
+            color: #ffffff;
+        }
+
+        .tool-badge:hover i {
+            color: #ffffff;
+        }
+
+        a.d-inline-flex i.fa-arrow-right {
+            transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        a.d-inline-flex:hover i.fa-arrow-right {
+            transform: translateX(6px);
+        }
+
+        .nav-link {
+            padding-bottom: 2px;
+        }
+
+        .nav-link::before {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background-color: var(--primary-color);
+            border-radius: 2px;
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .nav-link:hover::before {
+            transform: scaleX(1);
+        }
+
+        .nav-link.active::before {
+            transform: scaleX(0);
+        }
+
+        .btn-primary-gradient,
+        .btn-primary-outlined {
+            will-change: transform;
+        }
+
+        .topbutton {
+            transform: translateY(8px) scale(0.9);
+        }
+
+        .topbutton.btn-show {
+            transform: translateY(0) scale(1);
+        }
+
+        .topbutton:hover {
+            transform: translateY(-3px) scale(1.05) !important;
+        }
+
+
+        /* =====================================================
+           HERO MOTION
+           ===================================================== */
+
+        .hero-area {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-img-container {
+            perspective: 1000px;
+        }
+
+        .hero-img-container img {
+            transition: transform 0.25s ease-out, box-shadow 0.4s ease;
+            animation: float-y 5.5s ease-in-out infinite;
+        }
+
+        .hero-img-container:hover img {
+            box-shadow: 0 20px 45px rgba(94, 39, 203, 0.18);
+        }
+
+
+        /* =====================================================
+           HOW I THINK — ILLUSTRATION
+           ===================================================== */
+
+        .process-illustration {
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .process-illustration img {
+            width: 100%;
+            max-width: 340px;
+            height: auto;
+            mix-blend-mode: multiply;
+            animation: float-y 6s ease-in-out infinite;
+        }
+
+        .process-illustration .glow {
+            position: absolute;
+            width: 260px;
+            height: 260px;
+            border-radius: 50%;
+            background: radial-gradient(circle, var(--primary-light) 0%, rgba(231, 219, 255, 0) 70%);
+            z-index: -1;
+        }
+
+
+        /* =====================================================
+           ABOUT — DECORATIVE FILL
+           ===================================================== */
+
+        .about-decoration {
+            position: relative;
+            background: var(--bg-light);
+            border: 1px solid rgba(94, 39, 203, 0.10);
+            border-radius: 20px;
+            padding: 2.25rem 1.75rem;
+            text-align: center;
+        }
+
+        .about-decoration .flow-icons {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.9rem;
+            margin-bottom: 1.25rem;
+        }
+
+        .about-decoration .flow-icons .icon-circle {
+            width: 56px;
+            height: 56px;
+            border-radius: 50%;
+            background: #ffffff;
+            border: 1px solid rgba(94, 39, 203, 0.14);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary-color);
+            font-size: 1.15rem;
+            box-shadow: 0 8px 20px rgba(94, 39, 203, 0.08);
+            animation: float-y 4.5s ease-in-out infinite;
+        }
+
+        .about-decoration .flow-icons .icon-circle:nth-child(3) {
+            animation-delay: -2.2s;
+        }
+
+        .about-decoration .flow-icons .fa-arrow-right {
+            color: var(--primary-color);
+            opacity: 0.5;
+        }
+
+        .about-decoration .flow-label {
+            font-size: 0.78rem;
+            font-weight: 700;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: var(--text-muted);
+        }
+
+        .about-decoration .flow-label strong {
+            display: block;
+            font-size: 1rem;
+            letter-spacing: 0;
+            text-transform: none;
+            color: var(--dark-color);
+            margin-top: 0.35rem;
+        }
+
+
+        /* =====================================================
+           TOOLS — AMBIENT FLOATING CHIPS
+           ===================================================== */
+
+        .tools-decoration {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            right: 3%;
+            width: 220px;
+            display: none;
+            pointer-events: none;
+        }
+
+        @media (min-width: 992px) {
+            .tools-decoration {
+                display: block;
+            }
+        }
+
+        .tools-decoration .float-chip {
+            position: absolute;
+            width: 46px;
+            height: 46px;
+            border-radius: 14px;
+            background: #ffffff;
+            border: 1px solid rgba(94, 39, 203, 0.12);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary-color);
+            box-shadow: 0 10px 24px rgba(94, 39, 203, 0.08);
+            animation: float-y 5s ease-in-out infinite;
+        }
+
+        .tools-decoration .float-chip:nth-child(1) { top: 12%; left: 10%; animation-delay: -1s; }
+        .tools-decoration .float-chip:nth-child(2) { top: 42%; left: 55%; animation-delay: -3s; }
+        .tools-decoration .float-chip:nth-child(3) { top: 68%; left: 20%; animation-delay: -0.5s; }
+
     </style>
 
 </head>
 
 
 <body>
+
+    <div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
 
 
     <!-- =========================================================
@@ -673,6 +1060,12 @@
         <section
             id="hero"
             class="hero-area min-vh-90 d-flex align-items-center bg-white section-padding pt-5 navigation-section">
+
+            <div class="ambient-field" aria-hidden="true">
+                <div class="orb orb-1"></div>
+                <div class="orb orb-2"></div>
+                <div class="orb orb-3"></div>
+            </div>
 
             <div class="container">
 
@@ -1079,13 +1472,41 @@
             id="process"
             class="process-area section-padding border-top bg-white navigation-section">
 
+            <div class="ambient-field" aria-hidden="true">
+                <div class="orb orb-2" style="top: -40px; bottom: auto; left: auto; right: -40px;"></div>
+            </div>
+
             <div class="container">
 
-                <h2 class="section-title">
+                <div class="row align-items-center g-4 mb-4">
 
-                    How I Think
+                    <div class="col-lg-7">
 
-                </h2>
+                        <h2 class="section-title mb-0">
+
+                            How I Think
+
+                        </h2>
+
+                    </div>
+
+
+                    <div class="col-lg-5">
+
+                        <div class="process-illustration">
+
+                            <div class="glow" aria-hidden="true"></div>
+
+                            <img
+                                src="./assets/img/how-i-think-illustration.png"
+                                alt="Illustration of a person thinking, surrounded by question marks, representing a curious and research-driven design process"
+                                loading="lazy">
+
+                        </div>
+
+                    </div>
+
+                </div>
 
 
                 <div class="row g-4">
@@ -1201,9 +1622,13 @@
             id="about"
             class="about-area section-padding border-top bg-white navigation-section">
 
+            <div class="ambient-field" aria-hidden="true">
+                <div class="orb orb-3" style="top: 10%; right: auto; left: 60%;"></div>
+            </div>
+
             <div class="container">
 
-                <div class="row justify-content-between g-5 align-items-start">
+                <div class="row justify-content-between g-5 align-items-center">
 
                     <div class="col-lg-8">
 
@@ -1248,6 +1673,34 @@
                             I’m especially drawn to products where people, technology, and business needs intersect, because that’s where thoughtful design can make a meaningful difference.
 
                         </p>
+
+                    </div>
+
+
+                    <div class="col-lg-4">
+
+                        <div class="about-decoration">
+
+                            <div class="flow-icons" aria-hidden="true">
+
+                                <span class="icon-circle">
+                                    <i class="fas fa-brain"></i>
+                                </span>
+
+                                <i class="fas fa-arrow-right"></i>
+
+                                <span class="icon-circle">
+                                    <i class="fas fa-pencil-ruler"></i>
+                                </span>
+
+                            </div>
+
+                            <span class="flow-label">
+                                Psychology
+                                <strong>→ UX Design</strong>
+                            </span>
+
+                        </div>
 
                     </div>
 
@@ -1387,6 +1840,12 @@
             id="tools"
             class="tools-area section-padding border-top bg-white">
 
+            <div class="tools-decoration" aria-hidden="true">
+                <span class="float-chip"><i class="fas fa-layer-group"></i></span>
+                <span class="float-chip"><i class="fas fa-pencil-ruler"></i></span>
+                <span class="float-chip"><i class="fas fa-vial"></i></span>
+            </div>
+
             <div class="container">
 
                 <div class="row">
@@ -1426,6 +1885,26 @@
                                    aria-hidden="true"></i>
 
                                 UX Research
+
+                            </span>
+
+
+                            <span class="tool-badge">
+
+                                <i class="fas fa-comments"
+                                   aria-hidden="true"></i>
+
+                                Qualitative Research
+
+                            </span>
+
+
+                            <span class="tool-badge">
+
+                                <i class="fas fa-chart-bar"
+                                   aria-hidden="true"></i>
+
+                                Quantitative Research
 
                             </span>
 
@@ -1526,6 +2005,76 @@
                                    aria-hidden="true"></i>
 
                                 Iterative Design
+
+                            </span>
+
+
+                            <span class="tool-badge">
+
+                                <i class="fas fa-hand-pointer"
+                                   aria-hidden="true"></i>
+
+                                Interaction Design
+
+                            </span>
+
+
+                            <span class="tool-badge">
+
+                                <i class="fas fa-palette"
+                                   aria-hidden="true"></i>
+
+                                Visual Design
+
+                            </span>
+
+
+                            <span class="tool-badge">
+
+                                <i class="fas fa-clipboard-check"
+                                   aria-hidden="true"></i>
+
+                                Usability Testing
+
+                            </span>
+
+
+                            <span class="tool-badge">
+
+                                <i class="fas fa-id-badge"
+                                   aria-hidden="true"></i>
+
+                                Persona Development
+
+                            </span>
+
+
+                            <span class="tool-badge">
+
+                                <i class="fas fa-route"
+                                   aria-hidden="true"></i>
+
+                                User Journey Mapping
+
+                            </span>
+
+
+                            <span class="tool-badge">
+
+                                <i class="fas fa-th-large"
+                                   aria-hidden="true"></i>
+
+                                Design Systems
+
+                            </span>
+
+
+                            <span class="tool-badge">
+
+                                <i class="fas fa-tablet-alt"
+                                   aria-hidden="true"></i>
+
+                                Responsive Design
 
                             </span>
 
@@ -1744,6 +2293,115 @@
     <script>
 
         $(document).ready(function() {
+
+
+            /* =====================================================
+               SCROLL PROGRESS BAR
+               ===================================================== */
+
+            const progressBar = document.getElementById('scrollProgress');
+
+            function updateProgress() {
+                const scrollTop = window.scrollY;
+                const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+                const pct = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
+                if (progressBar) progressBar.style.width = pct + '%';
+            }
+
+            window.addEventListener('scroll', updateProgress, { passive: true });
+            updateProgress();
+
+
+            /* =====================================================
+               SCROLL REVEAL (with stagger)
+               ===================================================== */
+
+            const revealSelectors = [
+                '.section-title',
+                '.portfolio-area p.fs-5',
+                '.featured-card',
+                '.secondary-card',
+                '.think-card',
+                '.about-area p',
+                '.about-decoration',
+                '.problem-item',
+                '.tool-badge',
+                '.process-illustration',
+                '.resume-cta-area h2',
+                '.resume-cta-area p',
+                '.resume-cta-area .d-flex',
+                '.contact-personal-area h2',
+                '.contact-personal-area p',
+                '.contact-personal-area .mb-5',
+                '.contact-personal-area .d-flex'
+            ];
+
+            const revealEls = document.querySelectorAll(revealSelectors.join(','));
+
+            // Stagger siblings that share a parent (cards, badges, problem items)
+            const groupCounters = new WeakMap();
+            revealEls.forEach(function(el) {
+                const parent = el.parentElement;
+                const count = groupCounters.get(parent) || 0;
+                el.style.transitionDelay = Math.min(count * 70, 420) + 'ms';
+                groupCounters.set(parent, count + 1);
+            });
+
+            if ('IntersectionObserver' in window) {
+                const io = new IntersectionObserver(function(entries) {
+                    entries.forEach(function(entry) {
+                        if (entry.isIntersecting) {
+                            entry.target.classList.add('in-view');
+                            io.unobserve(entry.target);
+                        }
+                    });
+                }, { threshold: 0.15, rootMargin: '0px 0px -60px 0px' });
+
+                revealEls.forEach(function(el) { io.observe(el); });
+            } else {
+                revealEls.forEach(function(el) { el.classList.add('in-view'); });
+            }
+
+
+            /* =====================================================
+               HERO IMAGE TILT
+               ===================================================== */
+
+            const heroImg = document.querySelector('.hero-img-container img');
+            const heroArea = document.querySelector('.hero-area');
+
+            if (heroImg && heroArea && window.matchMedia('(hover: hover)').matches) {
+                heroArea.addEventListener('mousemove', function(e) {
+                    const rect = heroArea.getBoundingClientRect();
+                    const x = (e.clientX - rect.left) / rect.width - 0.5;
+                    const y = (e.clientY - rect.top) / rect.height - 0.5;
+                    heroImg.style.transform = 'rotateY(' + (x * 6) + 'deg) rotateX(' + (y * -6) + 'deg)';
+                });
+
+                heroArea.addEventListener('mouseleave', function() {
+                    heroImg.style.transform = '';
+                });
+            }
+
+
+            /* =====================================================
+               MAGNETIC BUTTONS
+               ===================================================== */
+
+            if (window.matchMedia('(hover: hover)').matches) {
+                document.querySelectorAll('.btn-primary-gradient, .btn-primary-outlined').forEach(function(btn) {
+                    btn.addEventListener('mousemove', function(e) {
+                        const rect = btn.getBoundingClientRect();
+                        const x = e.clientX - rect.left - rect.width / 2;
+                        const y = e.clientY - rect.top - rect.height / 2;
+                        btn.style.transform = 'translate(' + (x * 0.12) + 'px,' + (y * 0.28) + 'px)';
+                    });
+
+                    btn.addEventListener('mouseleave', function() {
+                        btn.style.transform = '';
+                    });
+                });
+            }
 
 
             /* =====================================================
